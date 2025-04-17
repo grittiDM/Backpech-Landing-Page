@@ -1,0 +1,3 @@
+node_modules/     # Ignora dependências (não deve ser commitado)
+.DS_Store         # Ignora arquivos temporários do macOS
+assets/css/main.css # Opcional: pode gerar CSS no deploy
