@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply bg-primary text-white px-6 py-2 rounded hover:bg-primary-dark transition;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-200 text-gray-800 px-6 py-2 rounded hover:bg-gray-300 transition;
+    }
+
+    .service-card {
+        @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all;
+        @apply border-l-4 border-primary;
+        /* Destaque lateral */
+    }
+
+    .service-card__title {
+        @apply text-xl font-bold text-gray-800 dark:text-white mb-2;
+    }
+
+    .service-card__duration {
+        @apply text-sm text-gray-500 dark:text-gray-300;
+    }
+}

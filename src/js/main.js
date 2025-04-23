@@ -26,4 +26,11 @@ window.addEventListener('load', () => {
 
     // Preload images
     preloadImages();
+    
+    // Highlight ao passar o mouse (exemplo)
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.href = `/contato.html?service=${card.dataset.service}`;
+        });
+    });
 });
