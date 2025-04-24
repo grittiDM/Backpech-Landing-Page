@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./assets/css/main.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./assets/css/main.min.css --minify"
+    "build": "tailwindcss -i ./src/input.css -o ./assets/css/main.min.css --minify",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .",
+    "optimize-images": "npx sharp-cli input/*.{jpg,png} --output ./images/ --format webp --quality 80"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.1.0",
     "postcss": "^8.5.3",
+    "sharp-cli": "^3.1.0",
     "tailwindcss": "^3.4.17"
   }
 }

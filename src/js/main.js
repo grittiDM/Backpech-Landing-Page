@@ -1,36 +1,35 @@
-// Initialize
-window.addEventListener('load', () => {
-    // Typewriter Effect
-    const elements = document.getElementsByClassName('typewrite');
-    for (let i = 0; i < elements.length; i++) {
-        const toRotate = elements[i].getAttribute('data-type');
-        const period = elements[i].getAttribute('data-period');
-        if (toRotate) {
-            new TxtType(elements[i], JSON.parse(toRotate), period);
-        }
-    }
+import './carousel.js';
 
-    // Add cursor style
-    const style = document.createElement('style');
-    style.type = 'text/css';
-    style.innerHTML = '.typewrite > .wrap { border-right: 0.08em solid #f9f5d7 }';
-    document.body.appendChild(style);
-
-    // Splash Screen
-    setTimeout(() => {
-        $('#splash-screen').fadeOut('slow', () => {
-            $('#main-content').fadeIn('slow');
-            adjustOctogons();
-        });
-    }, 2000);
-
-    // Preload images
-    preloadImages();
+// Função para pré-carregar imagens
+function preloadImages() {
+    const images = [
+      '/images/logo/Backpech-P-L-NB.png',
+      // Adicione outras imagens importantes aqui
+    ];
     
-    // Highlight ao passar o mouse (exemplo)
-    document.querySelectorAll('.service-card').forEach(card => {
-        card.addEventListener('click', () => {
-            window.location.href = `/contato.html?service=${card.dataset.service}`;
-        });
+    images.forEach(src => {
+      new Image().src = src;
     });
-});
+  }
+  
+  // Inicialização quando o DOM estiver pronto
+  document.addEventListener('DOMContentLoaded', () => {
+    // Splash Screen
+    const splashScreen = document.getElementById('splash-screen');
+    if (splashScreen) {
+      setTimeout(() => {
+        splashScreen.style.opacity = '0';
+        setTimeout(() => {
+          splashScreen.style.display = 'none';
+        }, 500);
+      }, 2000);
+    }
+  
+    // Pré-carregar imagens
+    preloadImages();
+  });
+  
+  // Handler para redimensionamento
+  window.addEventListener('resize', () => {
+    // Adicione aqui qualquer lógica de redimensionamento necessária
+  });

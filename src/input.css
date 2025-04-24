@@ -1,27 +1,153 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Orbitron:wght@600&display=swap');
+@import "tailwindcss";
+
+@layer base {
+    @font-face {
+        font-family: 'Orbitron';
+    }
+
+    @font-face {
+        font-family: 'Chakra Petch';
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'Titulo-Bold', sans-serif;
+        @apply tracking-tighter;
+    }
+
+    body {
+        font-family: 'Texto-Regular', sans-serif;
+        @apply text-gray-800 dark:text-gray-100;
+    }
+}
 
 @layer components {
-    .btn-primary {
-        @apply bg-primary text-white px-6 py-2 rounded hover:bg-primary-dark transition;
+
+    /* Botões no estilo das propagandas */
+    .btn-acao {
+        @apply bg-accent text-white px-6 py-3 rounded-lg font-bold;
+        @apply hover:bg-accent-dark transform hover:scale-105 transition-all;
+        @apply shadow-lg shadow-accent/30;
+        @apply text-lg uppercase tracking-wide;
     }
 
-    .btn-secondary {
-        @apply bg-gray-200 text-gray-800 px-6 py-2 rounded hover:bg-gray-300 transition;
+    /* Cards de serviços - inspirado nos layouts */
+    .card-servico {
+        @apply bg-white dark:bg-gray-800 p-6 rounded-xl;
+        @apply border-l-8 border-primary shadow-md hover:shadow-xl;
+        @apply transition-all duration-300;
+        @apply transform hover:-translate-y-1;
     }
 
-    .service-card {
-        @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all;
-        @apply border-l-4 border-primary;
-        /* Destaque lateral */
+    .card-servico-titulo {
+        @apply text-2xl font-bold mb-3 text-primary dark:text-secondary;
+        @apply uppercase tracking-tight;
     }
 
-    .service-card__title {
-        @apply text-xl font-bold text-gray-800 dark:text-white mb-2;
+    .card-servico-lista {
+        @apply list-disc pl-5 space-y-2;
+        @apply text-gray-700 dark:text-gray-300;
     }
 
-    .service-card__duration {
-        @apply text-sm text-gray-500 dark:text-gray-300;
+    /* Destaques no estilo "A BACKPECH RESOLVE!" */
+    .destaque-resolve {
+        @apply text-accent font-bold text-xl;
+        @apply animate-pulse;
+        @apply inline-block;
+    }
+
+    /* Seção de contato em destaque */
+    .contato-destaque {
+        @apply bg-primary text-white p-4 rounded-lg;
+        @apply text-center font-bold text-lg;
+        @apply shadow-lg;
+    }
+
+    /* Estilos do carrossel */
+    .carousel-container {
+        @apply relative overflow-hidden;
+    }
+
+    .carousel-track {
+        @apply flex transition-transform duration-300 ease-in-out;
+    }
+
+    .carousel-slide {
+        @apply px-4 transition-all duration-300;
+        flex: 0 0 100%;
+    }
+
+    @media (min-width: 768px) {
+        .carousel-slide {
+            flex: 0 0 50%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .carousel-slide {
+            flex: 0 0 33.333%;
+        }
+    }
+
+    /* Estilo para o slide central em foco */
+    .carousel-slide.focused {
+        @apply transform scale-110 z-10;
+    }
+
+    .carousel-slide:not(.focused) {
+        @apply opacity-80;
+    }
+}
+
+@layer utilities {
+
+    /* Efeito de destaque para títulos */
+    .titulo-destaque {
+        @apply relative inline-block;
+    }
+
+    .titulo-destaque::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-full h-1 bg-accent;
+        @apply transform scale-x-0 origin-left transition-transform duration-500;
+    }
+
+    .titulo-destaque:hover::after {
+        @apply scale-x-100;
+    }
+
+    /* Efeito de máquina de escrever */
+    .typewriter-effect {
+        @apply border-r-2 border-gray-800 dark:border-gray-100;
+        animation: blinkCursor 0.7s infinite;
+    }
+
+    @keyframes blinkCursor {
+
+        from,
+        to {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: currentColor
+        }
+    }
+
+    /* Ajuste para títulos muito longos */
+    .break-title {
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    /* Sombra especial para cards */
+    .shadow-servico {
+        box-shadow: 0 4px 20px rgba(143, 63, 113, 0.2);
+    }
+
+    .dark .shadow-servico {
+        box-shadow: 0 4px 20px rgba(7, 102, 120, 0.3);
     }
 }

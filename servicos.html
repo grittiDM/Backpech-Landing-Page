@@ -14,262 +14,340 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <!-- CSS -->
-    <link href="assets/css/main.min.css" rel="stylesheet">
+    <link href="/assets/css/main.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/icons/favicon.ico" type="image/x-icon">
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
     <!-- Conteúdo do Cabeçalho -->
-    <header>
-        <nav>
-            <a href="/index.html">Início</a>
-            <a href="/contato.html">Contato</a>
+    <header class="bg-white dark:bg-gray-800 shadow">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/index.html" class="text-xl font-bold text-gray-800 dark:text-white">Backpech</a>
+                <div class="flex space-x-4">
+                    <a href="/index.html"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Início</a>
+                    <a href="/servicos.html"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Serviços</a>
+                    <a href="/contato.html"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Contato</a>
+                    <button class="dark-mode-toggle px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!-- Conteúdo principal -->
     <main>
         <!-- Serviços Padrão -->
-        <section class="max-w-2xl mx-auto">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-6 text-primary border-b pb-2">Serviços Padrão</h2>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <section class="py-12 bg-gray-100 dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl text-center mb-8 text-primary dark:text-secondary">
+                    <span class="titulo-destaque">SERVIÇOS PADRÃO</span>
+                </h1>
 
-                    <!-- Serviço Padrão: Formatação -->
-                    <div class="service-card" data-service="formatacao">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Formatação:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Remoção completa de arquivos;</li>
-                            <li>Restauração do sistema operacional + Atualizações necessárias;</li>
-                            <li>Otimização pós-instalação.</li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para computadores mais antigos, “fracos” ou lentos.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                <div class="relative">
+                    <!-- Botões de navegação -->
+                    <button
+                        class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 p-3 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-chevron-left text-primary dark:text-secondary"></i>
+                    </button>
+
+                    <div class="carousel-container overflow-hidden">
+                        <div class="carousel-track flex transition-transform duration-300 ease-in-out">
+                            <!-- Card 1 -->
+                            <div
+                                class="carousel-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4 transition-all duration-300">
+                                <div class="card-servico">
+                                    <!-- Serviço Padrão: Formatação -->
+                                    <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                                        data-service="formatacao">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-gamepad text-secondary"></i>
+                                            <h3 class="service-card__title">Formatação:</h3>
+                                        </div>
+                                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                                            <li>Remoção completa de arquivos;</li>
+                                            <li>Restauração do sistema operacional + Atualizações necessárias;</li>
+                                            <li>Otimização pós-instalação.</li>
+                                        </ul>
+                                        <h4 class="service-card__info">Ideal para computadores mais antigos, “fracos” ou
+                                            lentos.</h4>
+                                        <div class="flex justify-between items-center">
+                                            <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
+                                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Serviço Padrão: Atualização de Sistema -->
-                    <div class="service-card" data-service="atualizacao de sistema">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Atualização de Sistema:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Verificação de atualizações pendentes e possíveis erros de versão;</li>
-                            <li>Atualização geral do sistema, incluindo aplicativos de terceiros;</li>
-                            <li>Otimização do sistema Windows.</li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para casos de lentidão na máquina.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+
+                    <!-- Card 2 -->
+                    <div class="carousel-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4 transition-all duration-300">
+                        <div class="card-servico">
+                            <!-- Serviço Padrão: Atualização de Sistema -->
+                            <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                                data-service="atualizacao de sistema">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-gamepad text-secondary"></i>
+                                    <h3 class="service-card__title">Atualização de Sistema:</h3>
+                                </div>
+                                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                                    <li>Verificação de atualizações pendentes e possíveis erros de versão;</li>
+                                    <li>Atualização geral do sistema, incluindo aplicativos de terceiros;</li>
+                                    <li>Otimização do sistema Windows.</li>
+                                </ul>
+                                <h4 class="service-card__info">Ideal para casos de lentidão na máquina.</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
+                                    <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Serviço Padrão: Higieninazação - Tipo P -->
-                    <div class="service-card" data-service="higienizacao">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Higieninazação - Tipo P:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Higienização externa da máquina;</li>
-                            <li>Higienização de periféricos (teclados, mouses, controles...).</li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para equipamentos antigos ou que estavam guardados.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    <!-- Card 3 -->
+                    <div class="carousel-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4 transition-all duration-300">
+                        <div class="card-servico">
+                            <!-- Serviço Padrão: Higieninazação - Tipo P -->
+                            <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                                data-service="higienizacao">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-gamepad text-secondary"></i>
+                                    <h3 class="service-card__title">Higieninazação - Tipo P:</h3>
+                                </div>
+                                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                                    <li>Higienização externa da máquina;</li>
+                                    <li>Higienização de periféricos (teclados, mouses, controles...).
+                                    </li>
+                                </ul>
+                                <h4 class="service-card__info">Ideal para equipamentos antigos ou que
+                                    estavam
+                                    guardados.
+                                </h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="service-card__duration">⏱️ Duração média: 1 dia
+                                        útil</span>
+                                    <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Serviço Padrão: Troca de Sistema -->
-                    <div class="service-card" data-service="troca de sistema">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Troca de Sistema:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Substituição do sistema operacional atual pelo escolhido;</li>
-                            <li>Instalação de aplicativos de terceiros de acordo com as suas preferências;</li>
-                            <li>Em caso de migração entre Windows e Linux, explicação do funcionamento do novo sistema.
-                            </li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para casos de lentidão na máquina ou insatisfação com o
-                            Sistema
-                            atual.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    <!-- Card 4 -->
+                    <div class="carousel-slide min-w-full md:min-w-1/2 lg:min-w-1/3 px-4 transition-all duration-300">
+                        <div class="card-servico">
+                            <!-- Serviço Padrão: Troca de Sistema -->
+                            <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                                data-service="troca de sistema">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-gamepad text-secondary"></i>
+                                    <h3 class="service-card__title">Troca de Sistema:</h3>
+                                </div>
+                                <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                                    <li>Substituição do sistema operacional atual pelo escolhido;</li>
+                                    <li>Instalação de aplicativos de terceiros de acordo com as suas
+                                        preferências;</li>
+                                    <li>Em caso de migração entre Windows e Linux, explicação do
+                                        funcionamento
+                                        do novo
+                                        sistema.
+                                    </li>
+                                </ul>
+                                <h4 class="service-card__info">Ideal para casos de lentidão na máquina
+                                    ou
+                                    insatisfação
+                                    com o
+                                    Sistema
+                                    atual.</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="service-card__duration">⏱️ Duração média: 2 dia
+                                        útil</span>
+                                    <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <button
+                        class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-gray-800 p-3 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-chevron-right text-primary dark:text-secondary"></i>
+                    </button>
                 </div>
-            </div>
         </section>
 
         <!-- Serviços Gaming -->
-        <section class="max-w-2xl mx-auto">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-6 text-primary border-b pb-2">Serviços Gaming</h2>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <section class="py-12 bg-gray-100 dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl text-center mb-8 text-primary dark:text-secondary">
+                    <span class="titulo-destaque">SERVIÇOS GAMING</span>
+                </h1>
 
-                    <!-- Serviço Gaming: Atualização de Hardware -->
-                    <div class="service-card" data-service="atualizacao de hardware">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Atualização de Hardware:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Substituição das peças atual pelas novas;</li>
-                            <li>Testes - funcionamento e desempenho da máquina;</li>
-                            <li>Personalização da máquina.</li>
-                        </ul>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
+                <!-- Serviço Gaming: Atualização de Hardware -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="atualizacao de hardware">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Atualização de Hardware:</h3>
                     </div>
-
-                    <!-- Serviço Gaming: Montagem - tipo G -->
-                    <div class="service-card" data-service="montagem de computadores">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Montagem - tipo G:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Instalação das peças;</li>
-                            <li>Testes - funcionamento e desempenho da máquina;</li>
-                            <li>Personalização da máquina.</li>
-                        </ul>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
-                    </div>
-
-                    <!-- Serviço Gaming: Higienização - tipo G -->
-                    <div class="service-card" data-service="higienizacao">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Higienização - tipo G:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Higienização externa da máquina;</li>
-                            <li>Higienização de periféricos (teclados, mouses, controles...);</li>
-                            <li>Higienização interna dos componentes.</li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para aumentar a vida útil da sua máquina.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
-                    </div>
-
-                    <!-- Serviço Gaming: Suporte de Escolha -->
-                    <div class="service-card" data-service="suporte tecnico">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Suporte de Escolha:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Listagem das peças necessárias para rodar os jogos desejados;</li>
-                            <li>Indicação de sites e plataformas confiáveis para compra;</li>
-                            <li>Orçamentos de peças: valor mínimo, médio e máximo.</li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para quem deseja comprar ou atualizar um computador.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Substituição das peças atual pelas novas;</li>
+                        <li>Testes - funcionamento e desempenho da máquina;</li>
+                        <li>Personalização da máquina.</li>
+                    </ul>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
                     </div>
                 </div>
+
+                <!-- Serviço Gaming: Montagem - tipo G -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="montagem de computadores">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Montagem - tipo G:</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Instalação das peças;</li>
+                        <li>Testes - funcionamento e desempenho da máquina;</li>
+                        <li>Personalização da máquina.</li>
+                    </ul>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    </div>
+                </div>
+
+                <!-- Serviço Gaming: Higienização - tipo G -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="higienizacao">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Higienização - tipo G:</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Higienização externa da máquina;</li>
+                        <li>Higienização de periféricos (teclados, mouses, controles...);</li>
+                        <li>Higienização interna dos componentes.</li>
+                    </ul>
+                    <h4 class="service-card__info">Ideal para aumentar a vida útil da sua máquina.</h4>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: 2 dia útil</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    </div>
+                </div>
+
+                <!-- Serviço Gaming: Suporte de Escolha -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="suporte tecnico">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Suporte de Escolha:</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Listagem das peças necessárias para rodar os jogos desejados;</li>
+                        <li>Indicação de sites e plataformas confiáveis para compra;</li>
+                        <li>Orçamentos de peças: valor mínimo, médio e máximo.</li>
+                    </ul>
+                    <h4 class="service-card__info">Ideal para quem deseja comprar ou atualizar um computador.</h4>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: 1 dia útil</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 
         <!-- Serviços Padrão -->
-        <section class="max-w-2xl mx-auto">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-6 text-primary border-b pb-2">Serviços Código</h2>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <section class="py-12 bg-gray-100 dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl text-center mb-8 text-primary dark:text-secondary">
+                    <span class="titulo-destaque">SERVIÇOS CÓDIGO</span>
+                </h1>
 
-                    <!-- Serviço Código: Criação de Sites -->
-                    <div class="service-card" data-service="criacao de sites">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Criação de Sites:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Desenvolvimento em HTML, CSS e JavaScript;</li>
-                            <li>Modelos desenvolvidos: “modo Claro” e “modo Escuro”;</li>
-                            <li>Material de Design fornecido pelo contratante.</li>
-                        </ul>
-                        <h4 class="service-card__info">Ideal para empresas e pessoas públicas.</h4>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: a depender do projeto.</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
+                <!-- Serviço Código: Criação de Sites -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="criacao de sites">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Criação de Sites:</h3>
                     </div>
-
-                    <!-- Serviço Código: Remoção de Vírus -->
-                    <div class="service-card" data-service="remocao de virus">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Remoção de Vírus:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Identificação do vírus;</li>
-                            <li>Tratamento do vírus;</li>
-                            <li>Otimização do Sistema;</li>
-                            <li>Orientações de segurança.</li>
-                        </ul>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: a depender do caso.</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
-                    </div>
-
-                    <!-- Serviço Código: Assistência de Segurança -->
-                    <div class="service-card" data-service="seguranca">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Assistência de Segurança:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Remoção completa de arquivos</li>
-                            <li>Restauração do sistema operacional</li>
-                            <li>Otimização pós-instalação</li>
-                        </ul>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: 1h30</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
-                    </div>
-
-                    <!-- Serviço Código: Configuração Linux -->
-                    <div class="service-card" data-service="configuracao linux">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-gamepad text-secondary"></i>
-                            <h3 class="service-card__title">Configuração Linux:</h3>
-                        </div>
-                        <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
-                            <li>Configuração do Sistema Operacional;</li>
-                            <li>Personalização;</li>
-                            <li>Adição de Scripts (caso necessário);</li>
-                            <li>Orientações de uso e Programas instalados.</li>
-                        </ul>
-                        <div class="flex justify-between items-center">
-                            <span class="service-card__duration">⏱️ Duração média: a depender da configuração</span>
-                            <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
-                        </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Desenvolvimento em HTML, CSS e JavaScript;</li>
+                        <li>Modelos desenvolvidos: “modo Claro” e “modo Escuro”;</li>
+                        <li>Material de Design fornecido pelo contratante.</li>
+                    </ul>
+                    <h4 class="service-card__info">Ideal para empresas e pessoas públicas.</h4>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: a depender do projeto.</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
                     </div>
                 </div>
+
+                <!-- Serviço Código: Remoção de Vírus -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="remocao de virus">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Remoção de Vírus:</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Identificação do vírus;</li>
+                        <li>Tratamento do vírus;</li>
+                        <li>Otimização do Sistema;</li>
+                        <li>Orientações de segurança.</li>
+                    </ul>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: a depender do caso.</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    </div>
+                </div>
+
+                <!-- Serviço Código: Assistência de Segurança -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="seguranca">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Assistência de Segurança:</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Remoção completa de arquivos</li>
+                        <li>Restauração do sistema operacional</li>
+                        <li>Otimização pós-instalação</li>
+                    </ul>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: 1h30</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    </div>
+                </div>
+
+                <!-- Serviço Código: Configuração Linux -->
+                <div class="service-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all border-l-4 border-primary"
+                    data-service="configuracao linux">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-gamepad text-secondary"></i>
+                        <h3 class="service-card__title">Configuração Linux:</h3>
+                    </div>
+                    <ul class="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4">
+                        <li>Configuração do Sistema Operacional;</li>
+                        <li>Personalização;</li>
+                        <li>Adição de Scripts (caso necessário);</li>
+                        <li>Orientações de uso e Programas instalados.</li>
+                    </ul>
+                    <div class="flex justify-between items-center">
+                        <span class="service-card__duration">⏱️ Duração média: a depender da configuração</span>
+                        <a href="/contato.html" class="text-primary font-medium">Solicitar</a>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
     </main>
@@ -277,6 +355,7 @@
     <!-- JavaScript -->
     <script src="src/js/main.js" defer></script>
     <script src="src/js/dark-mode.js" defer></script>
+    <script src="/src/js/carousel.js" defer></script>
 </body>
 
 </html>
