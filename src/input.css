@@ -1,29 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Orbitron:wght@600&display=swap');
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Orbitron:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: 'Orbitron';
-    }
-
-    @font-face {
-        font-family: 'Chakra Petch';
-    }
 
     h1,
     h2,
     h3 {
-        font-family: 'Titulo-Bold', sans-serif;
-        @apply tracking-tighter;
+        @apply font-orbitron tracking-tighter;
     }
 
+    /* Garantir que o body use sempre as cores do tema */
     body {
-        font-family: 'Texto-Regular', sans-serif;
-        @apply text-gray-800 dark:text-gray-100;
+        @apply flex flex-col min-h-screen bg-bg-light dark:bg-bg-dark transition-colors duration-300;
+        @apply font-chakra;
+    }
+
+    header {
+        @apply bg-bg-light dark:bg-bg-dark shadow-md sticky top-0 z-40 transition-colors duration-300
+    }
+
+    footer {
+        @apply text-gray-400 hover:text-white dark:hover:text-txt-dark transition-colors;
     }
 }
 
 @layer components {
+
+    .header-main {
+        @apply bg-bg-light dark:bg-bg-dark text-txt-light dark:text-txt-dark;
+        @apply h-12
+    }
+
+    .header-logo {
+        @apply flex-shrink-0 h-12 w-12;
+    }
+
+    .header-logo-image {
+        @apply relative inset-0 w-full h-full object-contain object-center;
+        @apply max-w-full max-h-full p-1;
+    }
 
     /* Botões no estilo das propagandas */
     .btn-acao {
@@ -34,19 +52,52 @@
     }
 
     /* Cards de serviços - inspirado nos layouts */
-    .card-servico {
-        @apply bg-white dark:bg-gray-800 p-6 rounded-xl;
-        @apply border-l-8 border-primary shadow-md hover:shadow-xl;
+    .service-card {
+        @apply bg-white dark:bg-gray-800 p-6 shadow-md hover:shadow-xl;
+        @apply border-l-8 border-primary;
         @apply transition-all duration-300;
-        @apply transform hover:-translate-y-1;
+        position: relative;
+        overflow: hidden;
     }
 
-    .card-servico-titulo {
+    /* Efeito de brilho na borda */
+    .service-card::before {
+        content: '';
+        @apply absolute inset-0;
+        @apply border-2 border-transparent;
+        @apply transition-all duration-300;
+    }
+
+    .service-card:hover::before {
+        @apply border-accent;
+        animation: border-glow 2s infinite;
+    }
+
+    @keyframes border-glow {
+        0% {
+            opacity: 0.8;
+        }
+
+        50% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 0.8;
+        }
+    }
+
+    .service-card-title {
         @apply text-2xl font-bold mb-3 text-primary dark:text-secondary;
         @apply uppercase tracking-tight;
     }
 
-    .card-servico-lista {
+    .service-card-info {
+        @apply list-disc pl-5 space-y-2;
+        @apply text-gray-700 dark:text-gray-300;
+    }
+
+    .service-card-duration {
         @apply list-disc pl-5 space-y-2;
         @apply text-gray-700 dark:text-gray-300;
     }
@@ -67,18 +118,30 @@
 
     /* Estilos do carrossel */
     .carousel-container {
-        @apply relative overflow-hidden;
+        @apply relative overflow-hidden w-full;
     }
 
     .carousel-track {
         @apply flex transition-transform duration-300 ease-in-out;
+        @apply w-full;
     }
 
     .carousel-slide {
-        @apply px-4 transition-all duration-300;
+        @apply flex-shrink-0 transition-all duration-300;
+        @apply px-4;
         flex: 0 0 100%;
     }
 
+    /* Efeito de foco */
+    .carousel-slide.focused {
+        @apply transform scale-105 z-10;
+    }
+
+    .carousel-slide:not(.focused) {
+        @apply opacity-80;
+    }
+
+    /* Responsividade */
     @media (min-width: 768px) {
         .carousel-slide {
             flex: 0 0 50%;
@@ -91,17 +154,37 @@
         }
     }
 
-    /* Estilo para o slide central em foco */
-    .carousel-slide.focused {
-        @apply transform scale-110 z-10;
+    /* Botões de navegação */
+    .carousel-prev,
+    .carousel-next {
+        @apply absolute top-1/2 -translate-y-1/2 z-10;
+        @apply bg-white dark:bg-gray-800 p-3 rounded-full shadow-md;
+        @apply hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
     }
 
-    .carousel-slide:not(.focused) {
-        @apply opacity-80;
+    .carousel-prev {
+        @apply left-4;
+    }
+
+    .carousel-next {
+        @apply right-4;
     }
 }
 
 @layer utilities {
+
+    /* Melhorias de responsividade */
+    .responsive-padding {
+        @apply px-4 sm:px-6 md:px-8 lg:px-10;
+    }
+
+    .responsive-text {
+        @apply text-base sm:text-lg md:text-xl;
+    }
+
+    .responsive-gap {
+        @apply gap-4 sm:gap-6 md:gap-8;
+    }
 
     /* Efeito de destaque para títulos */
     .titulo-destaque {
@@ -149,5 +232,14 @@
 
     .dark .shadow-servico {
         box-shadow: 0 4px 20px rgba(7, 102, 120, 0.3);
+    }
+
+    /* Utilidades para o carrossel */
+    .slide-active {
+        @apply block;
+    }
+
+    .slide-hidden {
+        @apply hidden;
     }
 }

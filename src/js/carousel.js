@@ -1,4 +1,3 @@
-// src/js/carousel.js
 document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.carousel-container');
 
@@ -8,63 +7,58 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = carousel.parentElement.querySelector('.carousel-prev');
         const nextBtn = carousel.parentElement.querySelector('.carousel-next');
 
-        let currentIndex = 1; // Começa com o slide central em foco
+        let currentIndex = 0;
+        let slidesToShow = 1;
+        let slideWidth = 0;
 
-        // Inicializa o carrossel
-        const initCarousel = () => {
-            updateCarousel();
-            setSlideFocus();
-        };
+        function updateSlidesToShow() {
+            const width = window.innerWidth;
+            if (width >= 1024) { // lg breakpoint
+                slidesToShow = 3;
+            } else if (width >= 768) { // md breakpoint
+                slidesToShow = 2;
+            } else { // sm breakpoint
+                slidesToShow = 1;
+            }
+            slideWidth = track.offsetWidth / slidesToShow;
+        }
 
-        // Atualiza a posição do track
-        const updateCarousel = () => {
-            const slideWidth = slides[0].getBoundingClientRect().width;
+        function updateCarousel() {
+            updateSlidesToShow();
             track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        };
 
-        // Define qual slide está em foco
-        const setSlideFocus = () => {
+            // Atualiza classes de foco
             slides.forEach((slide, index) => {
-                if (index === currentIndex) {
-                    slide.classList.add('focused');
-                } else {
-                    slide.classList.remove('focused');
-                }
+                const isFocused = index >= currentIndex && index < currentIndex + slidesToShow;
+                slide.classList.toggle('focused', isFocused);
+                slide.classList.toggle('opacity-80', !isFocused);
             });
-        };
+        }
 
-        // Navega para o slide anterior
-        const goToPrev = () => {
-            if (currentIndex <= 0) {
-                currentIndex = slides.length - 1;
-            } else {
-                currentIndex--;
-            }
+        function goToPrev() {
+            currentIndex = Math.max(0, currentIndex - slidesToShow);
             updateCarousel();
-            setSlideFocus();
-        };
+        }
 
-        // Navega para o próximo slide
-        const goToNext = () => {
-            if (currentIndex >= slides.length - 1) {
-                currentIndex = 0;
-            } else {
-                currentIndex++;
-            }
+        function goToNext() {
+            currentIndex = Math.min(slides.length - slidesToShow, currentIndex + slidesToShow);
             updateCarousel();
-            setSlideFocus();
-        };
+        }
 
         // Event listeners
         prevBtn.addEventListener('click', goToPrev);
         nextBtn.addEventListener('click', goToNext);
 
-        // Inicializa
-        initCarousel();
+        // Inicialização
+        updateCarousel();
 
-        // Redimensionamento da janela
+        // Redimensionamento responsivo
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            updateCarousel();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                updateCarousel();
+            }, 250);
         });
     });
 });

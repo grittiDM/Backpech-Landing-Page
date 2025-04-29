@@ -1,8 +1,14 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+/** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./*.html", "./**/*.html"],
-  darkMode: "class",
+  content: [
+    './index.html',
+    './servicos.html',
+    './contato.html',
+    './src/**/*.{html,js}'
+    ],
+  darkMode: 'class',
+
   theme: {
     screens: {
       sm: '480px',
@@ -10,21 +16,25 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
+
     colors: {
-      primary: '#8f3f71',
-      secondary: '#076678',
-      accent: '#fe8019',
+      'primary': '#8f3f71',
+      'secondar': '#076678',
+      'accent': '#fe8019',
       transparent: 'transparent',
       current: 'currentColor',
-      bg_color: {
+
+      'bg': {
         light: '#f9f5d7',
         dark: '#282828',
       },
-      txt_color: {
+
+      'txt': {
         light: '#282828',
         dark: '#f9f5d7',
       },
-      gray: {
+
+      'gray': {
         50: '#d5c4a1',
         100: '#bdae93',
         200: '#a89984',
@@ -36,26 +46,36 @@ module.exports = {
         800: '#282828',
         900: '#1d2021',
       },
-      red: '#cc241d',
-      green: '#b8bb26',
-      yellow: '#fabd2f',
-      blue: '#076678',
-      purple: '#8f3f71',
-      aqua: '#689d6a',
+
+      'red': '#cc241d',
+      'green': '#b8bb26',
+      'yellow': '#fabd2f',
+      'blue': '#076678',
+      'purple': '#8f3f71',
+      'aqua': '#689d6a',
     },
+
+    opacity: {
+      '80': '0.8',
+      '100': '1',
+    },
+
     extend: {
       fontFamily: {
-        sans: ['Graphik', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        chakra: ['Chakra Petch', 'sans-serif'],
       },
+
       spacing: {
         '128': '32rem',
         '144': '36rem',
       },
+
       borderRadius: {
         '4xl': '2rem',
       }
     }
   },
+
   plugins: [],
 };
