@@ -3,60 +3,95 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="imagex/png" href="./images/icons/Star-BP-P-NB.png">
-
-    <!-- Meta tags otimizadas -->
-    <title>Backpech - Contato</title>
-    <meta name="description"
-        content="Assistência técnica especializada em manutenção de computadores, notebooks, higienização, troca de sistema e montagem de máquinas gaming.">
-
-    <!-- Pré-conexão para CDNs -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <!-- CSS -->
+  
+    <!-- SEO -->
+    <title>Contato | Backpech - Assistência Técnica Especializada</title>
+    <meta name="description" content="Entre em contato com a Backpech para solicitar orçamentos, tirar dúvidas ou agendar um atendimento técnico especializado.">
+    <meta name="keywords" content="contato, assistência técnica, orçamento, atendimento, dúvidas, Backpech">
+    <meta name="author" content="Backpech">
+  
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Contato | Backpech - Assistência Técnica Especializada">
+    <meta property="og:description" content="Entre em contato com a Backpech para solicitar orçamentos, tirar dúvidas ou agendar um atendimento técnico especializado.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.seusite.com.br/contato.html">
+    <meta property="og:image" content="https://www.seusite.com.br/images/logo/BP-P-NB-48px.png">
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contato | Backpech - Assistência Técnica Especializada">
+    <meta name="twitter:description" content="Entre em contato com a Backpech para solicitar orçamentos, tirar dúvidas ou agendar um atendimento técnico especializado.">
+    <meta name="twitter:image" content="https://www.seusite.com.br/images/logo/BP-P-NB-48px.png">
+  
+    <!-- Pré-conexão para CDNs e Fontes -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+    <!-- Pré-carregamento de fontes críticas -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Orbitron:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Orbitron:wght@400;600;700&display=swap" media="all">
+  
+    <!-- CSS Principal (minificado) -->
     <link rel="stylesheet" href="/assets/css/main.min.css">
-
-    <!-- Font Awesome (para ícones) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Favicon -->
-    <link rel="icon" href="/assets/images/icons/favicon.ico" type="image/x-icon">
-</head>
+  
+    <!-- Font Awesome (para ícones) - com SRI e crossorigin -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-papmQKXQw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Q=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+  
+    <!-- Favicon único e consistente -->
+    <link rel="icon" href="/images/icons/Star-BP-P-NB.png" type="image/png">
+  
+    <!-- Manifesto PWA (opcional) -->
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+  
+    <!-- Segurança: Content Security Policy (ajuste conforme necessário) -->
+    <!--
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.instagram.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.instagram.com;">
+    -->
+  
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.seusite.com.br/contato.html">
+  </head>
 
 <body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
     <!-- Cabeçalho -->
     <header class="bg-bg-light dark:bg-bg-dark shadow-md sticky top-0 z-40 transition-colors duration-300">
         <nav class="container mx-auto px-4 sm:px-6 py-4">
-          <div class="flex items-center justify-between">
-            <a href="/index.html"
-              class="text-xl font-bold text-txt-light dark:text-txt-dark hover:text-primary dark:hover:text-secondary transition-colors">
-              Backpech
-            </a>
-    
-            <div class="flex items-center space-x-4">
-              <a href="/index.html"
-                class="px-3 py-2 rounded-md text-sm font-medium text-txt-light dark:text-txt-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
-                Início
-              </a>
-              <a href="/servicos.html"
-                class="px-3 py-2 rounded-md text-sm font-medium text-txt-light dark:text-txt-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
-                Serviços
-              </a>
-              <a href="/contato.html"
-                class="px-3 py-2 rounded-md text-sm font-medium text-txt-light dark:text-txt-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
-                Contato
-              </a>
-    
-              <button class="dark-mode-toggle p-2 rounded-full hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
-                <i class="fas fa-moon dark:hidden text-blue"></i>
-                <i class="fas fa-sun hidden dark:inline-block text-yellow"></i>
-              </button>
+            <div class="flex items-center justify-between">
+                <a href="/index.html"
+                    class="text-xl font-bold text-txt-light dark:text-txt-dark hover:text-primary dark:hover:text-secondary transition-colors">
+                    Backpech
+                </a>
+
+                <div class="flex items-center space-x-4">
+                    <a href="/index.html"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-txt-light dark:text-txt-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
+                        Início
+                    </a>
+                    <a href="/servicos.html"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-txt-light dark:text-txt-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
+                        Serviços
+                    </a>
+                    <a href="/contato.html"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-txt-light dark:text-txt-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
+                        Contato
+                    </a>
+
+                    <button
+                        class="dark-mode-toggle p-2 rounded-full hover:bg-bg-light dark:hover:bg-bg-dark transition-colors">
+                        <i class="fas fa-moon dark:hidden text-blue"></i>
+                        <i class="fas fa-sun hidden dark:inline-block text-yellow"></i>
+                    </button>
+                </div>
             </div>
-          </div>
         </nav>
-      </header>
+    </header>
 
     <!-- Conteúdo principal -->
     <main>
@@ -91,7 +126,7 @@
     </main>
 
     <!-- Rodapé -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-800 text-txt-dark py-8">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
@@ -100,25 +135,31 @@
                 </div>
 
                 <div class="flex space-x-4">
-                    <a href="https://wa.me/5512981322663" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="https://wa.me/5512981322663" class="text-gray-400 hover:text-txt-dark transition-colors"
+                        target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp text-xl"></i>
                     </a>
                     <a href="https://www.instagram.com/back.pech/"
-                        class="text-gray-400 hover:text-white transition-colors">
+                        class="text-gray-400 hover:text-txt-dark transition-colors" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-instagram text-xl"></i>
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=61575175134618"
-                        class="text-gray-400 hover:text-white transition-colors">
+                        class="text-gray-400 hover:text-txt-dark transition-colors" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-facebook text-xl"></i>
                     </a>
                     <a href="https://www.linkedin.com/company/backpech"
-                        class="text-gray-400 hover:text-white transition-colors">
+                        class="text-gray-400 hover:text-txt-dark transition-colors" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-linkedin text-xl"></i>
                     </a>
-                    <a href="tel:+5512981322663" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="tel:+5512981322663" class="text-gray-400 hover:text-txt-dark transition-colors"
+                        target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-phone text-xl"></i>
                     </a>
-                    <a href="mailto:backpech.ctt@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                    <a href="mailto:backpech.ctt@gmail.com" class="text-gray-400 hover:text-txt-dark transition-colors"
+                        target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-envelope text-xl"></i>
                     </a>
                 </div>

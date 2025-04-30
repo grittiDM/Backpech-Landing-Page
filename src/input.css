@@ -1,245 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Orbitron:wght@400;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer components {
 
-    h1,
-    h2,
-    h3 {
-        @apply font-orbitron tracking-tighter;
+    /* Botão de ação padrão */
+    .btn-acao {
+        @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+        @apply bg-bpPrimary text-white hover:bg-bpSecondary;
     }
 
-    /* Garantir que o body use sempre as cores do tema */
-    body {
-        @apply flex flex-col min-h-screen bg-bg-light dark:bg-bg-dark transition-colors duration-300;
-        @apply font-chakra;
+    /* Card de serviço */
+    .service-card {
+        @apply bg-bpBgLight dark:bg-bpBgDark p-6 rounded-xl shadow-md hover:shadow-lg transition;
+        @apply border-l-4 border-bpPrimary;
     }
 
-    header {
-        @apply bg-bg-light dark:bg-bg-dark shadow-md sticky top-0 z-40 transition-colors duration-300
-    }
-
-    footer {
-        @apply text-gray-400 hover:text-white dark:hover:text-txt-dark transition-colors;
+    /* Título de seção */
+    .section-title {
+        @apply text-3xl font-bold text-center mb-12 text-bpPrimary dark:text-bpSecondary font-orbitron;
     }
 }
 
 @layer components {
 
-    .header-main {
-        @apply bg-bg-light dark:bg-bg-dark text-txt-light dark:text-txt-dark;
-        @apply h-12
+    /* Hero Section */
+    .hero-section {
+        @apply relative flex items-center justify-center min-h-[350px] py-16;
     }
 
-    .header-logo {
-        @apply flex-shrink-0 h-12 w-12;
+    /* Overlay para hero */
+    .hero-section .overlay {
+        @apply absolute inset-0 bg-black/40 dark:bg-black/60;
     }
 
+    /* Header logo fixo */
     .header-logo-image {
-        @apply relative inset-0 w-full h-full object-contain object-center;
-        @apply max-w-full max-h-full p-1;
-    }
-
-    /* Botões no estilo das propagandas */
-    .btn-acao {
-        @apply bg-accent text-white px-6 py-3 rounded-lg font-bold;
-        @apply hover:bg-accent-dark transform hover:scale-105 transition-all;
-        @apply shadow-lg shadow-accent/30;
-        @apply text-lg uppercase tracking-wide;
-    }
-
-    /* Cards de serviços - inspirado nos layouts */
-    .service-card {
-        @apply bg-white dark:bg-gray-800 p-6 shadow-md hover:shadow-xl;
-        @apply border-l-8 border-primary;
-        @apply transition-all duration-300;
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Efeito de brilho na borda */
-    .service-card::before {
-        content: '';
-        @apply absolute inset-0;
-        @apply border-2 border-transparent;
-        @apply transition-all duration-300;
-    }
-
-    .service-card:hover::before {
-        @apply border-accent;
-        animation: border-glow 2s infinite;
-    }
-
-    @keyframes border-glow {
-        0% {
-            opacity: 0.8;
-        }
-
-        50% {
-            opacity: 0.3;
-        }
-
-        100% {
-            opacity: 0.8;
-        }
-    }
-
-    .service-card-title {
-        @apply text-2xl font-bold mb-3 text-primary dark:text-secondary;
-        @apply uppercase tracking-tight;
-    }
-
-    .service-card-info {
-        @apply list-disc pl-5 space-y-2;
-        @apply text-gray-700 dark:text-gray-300;
-    }
-
-    .service-card-duration {
-        @apply list-disc pl-5 space-y-2;
-        @apply text-gray-700 dark:text-gray-300;
-    }
-
-    /* Destaques no estilo "A BACKPECH RESOLVE!" */
-    .destaque-resolve {
-        @apply text-accent font-bold text-xl;
-        @apply animate-pulse;
-        @apply inline-block;
-    }
-
-    /* Seção de contato em destaque */
-    .contato-destaque {
-        @apply bg-primary text-white p-4 rounded-lg;
-        @apply text-center font-bold text-lg;
-        @apply shadow-lg;
-    }
-
-    /* Estilos do carrossel */
-    .carousel-container {
-        @apply relative overflow-hidden w-full;
-    }
-
-    .carousel-track {
-        @apply flex transition-transform duration-300 ease-in-out;
-        @apply w-full;
-    }
-
-    .carousel-slide {
-        @apply flex-shrink-0 transition-all duration-300;
-        @apply px-4;
-        flex: 0 0 100%;
-    }
-
-    /* Efeito de foco */
-    .carousel-slide.focused {
-        @apply transform scale-105 z-10;
-    }
-
-    .carousel-slide:not(.focused) {
-        @apply opacity-80;
-    }
-
-    /* Responsividade */
-    @media (min-width: 768px) {
-        .carousel-slide {
-            flex: 0 0 50%;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .carousel-slide {
-            flex: 0 0 33.333%;
-        }
-    }
-
-    /* Botões de navegação */
-    .carousel-prev,
-    .carousel-next {
-        @apply absolute top-1/2 -translate-y-1/2 z-10;
-        @apply bg-white dark:bg-gray-800 p-3 rounded-full shadow-md;
-        @apply hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
-    }
-
-    .carousel-prev {
-        @apply left-4;
-    }
-
-    .carousel-next {
-        @apply right-4;
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        display: block;
     }
 }
 
 @layer utilities {
 
-    /* Melhorias de responsividade */
-    .responsive-padding {
-        @apply px-4 sm:px-6 md:px-8 lg:px-10;
+    /* Fade-in animation para elementos animados via JS */
+    .fade-in {
+        @apply opacity-0 translate-y-8 transition-all duration-700;
     }
 
-    .responsive-text {
-        @apply text-base sm:text-lg md:text-xl;
+    .fade-in.opacity-100 {
+        @apply opacity-100 translate-y-0;
     }
 
-    .responsive-gap {
-        @apply gap-4 sm:gap-6 md:gap-8;
+    /* Toast (usado em JS para boas-vindas e dark mode) */
+    .fade-in-toast {
+        @apply fixed bottom-6 right-6 bg-bpPrimary text-white px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-700;
     }
 
-    /* Efeito de destaque para títulos */
-    .titulo-destaque {
-        @apply relative inline-block;
+    .fade-in-toast.opacity-0 {
+        @apply opacity-0;
     }
 
-    .titulo-destaque::after {
-        content: '';
-        @apply absolute bottom-0 left-0 w-full h-1 bg-accent;
-        @apply transform scale-x-0 origin-left transition-transform duration-500;
+    /* Carousel dots */
+    .carousel-dots button {
+        @apply w-3 h-3 rounded-full bg-bpGray-400 focus:outline-none transition-colors;
     }
 
-    .titulo-destaque:hover::after {
-        @apply scale-x-100;
+    .carousel-dots button.bg-bpPrimary {
+        @apply bg-bpPrimary;
     }
 
-    /* Efeito de máquina de escrever */
-    .typewriter-effect {
-        @apply border-r-2 border-gray-800 dark:border-gray-100;
-        animation: blinkCursor 0.7s infinite;
+    /* Utilitários para dark mode toggle ícones */
+    #icon-moon,
+    #icon-sun {
+        @apply text-xl;
     }
 
-    @keyframes blinkCursor {
-
-        from,
-        to {
-            border-color: transparent
-        }
-
-        50% {
-            border-color: currentColor
-        }
+    /* Utilitário para overlay hero (caso precise via HTML) */
+    .hero-overlay {
+        @apply absolute inset-0 bg-black/40 dark:bg-black/60;
     }
 
-    /* Ajuste para títulos muito longos */
-    .break-title {
-        word-break: break-word;
-        hyphens: auto;
+    /* Utilitário para garantir contraste de texto em cards */
+    .text-bpTxtLight {
+        @apply text-bpTxtLight;
     }
 
-    /* Sombra especial para cards */
-    .shadow-servico {
-        box-shadow: 0 4px 20px rgba(143, 63, 113, 0.2);
+    .text-bpTxtDark {
+        @apply text-bpTxtDark;
     }
+}
 
-    .dark .shadow-servico {
-        box-shadow: 0 4px 20px rgba(7, 102, 120, 0.3);
+/* Responsividade para grid de serviços */
+@media (min-width: 768px) {
+    .services-highlight .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+}
 
-    /* Utilidades para o carrossel */
-    .slide-active {
-        @apply block;
+@media (min-width: 1024px) {
+    .services-highlight .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+}
 
-    .slide-hidden {
-        @apply hidden;
+/* Footer */
+footer {
+    @apply bg-bpBgDark text-bpTxtDark py-8 mt-auto;
+}
+
+/* Exemplo de animação para toast de dark mode */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(20px);
     }
+}
+
+.toast-fade-out {
+    animation: fadeOut 0.6s forwards;
 }
