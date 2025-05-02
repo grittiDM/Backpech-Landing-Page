@@ -1,3 +1,50 @@
-node_modules/     # Ignora dependências (não deve ser commitado)
-.DS_Store         # Ignora arquivos temporários do macOS
-assets/css/main.css # Opcional: pode gerar CSS no deploy
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# TailwindCSS e arquivos CSS gerados
+assets/css/main.css
+assets/css/main.min.css
+
+# Arquivos temporários e cache
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.cache/
+.tmp/
+temp/
+*.tmp
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.qodo/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Arquivos de deploy do gh-pages (caso use)
+.gh-pages/
+
+# Outras pastas de saída de ferramentas
+coverage/
+output/
+out/
+
+# Arquivos de lock alternativos (caso use apenas npm)
+yarn.lock
+pnpm-lock.yaml
+
+# Ignorar binários gerados por ferramentas (opcional, pois node_modules/ já cobre)
+# node_modules/.bin/
+
+# Comentários explicativos
+# Adicione outros padrões conforme necessário para seu fluxo de trabalho
