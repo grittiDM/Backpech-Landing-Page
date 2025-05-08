@@ -2,9 +2,9 @@
   "name": "backpech-assistencia",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./assets/css/main.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./assets/css/main.min.css --minify",
-    "clean": "rm -rf ./assets/css/main.css ./assets/css/main.min.css",
+    "dev": "npx @tailwindcss/cli -i ./src/css/input.css -o ./public/css/main.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/css/input.css -o ./public/css/main.min.css --minify",
+    "clean": "rm -rf ./public/css/main.css ./public/css/main.min.css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d .",
     "optimize-images": "npx sharp-cli input/*.{jpg,png} --output ./images/ --format webp --quality 80"
