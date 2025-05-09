@@ -1,23 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Orbitron:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=Orbitron:wght@600&display=swap');
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @theme {
-    --color-bp-primary: #8f3f71;
-    --color-bp-secondary: #076678;
-    --color-bp-accent: #fe8019;
-
-    --color-bp-bg-light: #f9f5d7;
-    --color-bp-bg-dark: #282828;
-
-    --color-bp-text-light: #282828;
-    --color-bp-text-dark: #f9f5d7;
+    --color-bp-white: #f9f5d7;
+    --color-bp-black: #282828;
 
     --color-bp-red: #cc241d;
     --color-bp-green: #b8bb26;
     --color-bp-blue: #076678;
     --color-bp-yellow: #fabd2f;
     --color-bp-purple: #8f3f71;
+    --color-bp-orange: #fe8019;
 
     --color-bp-gray50: #d5c4a1;
     --color-bp-gray100: #bdae93;
@@ -30,7 +23,7 @@
     --color-bp-gray800: #282828;
     --color-bp-gray900: #1d2021;
 
-    --font-tittle: 'Orbitron', 'sans-serif';
+    --font-title: 'Orbitron', 'sans-serif';
     --font-body: 'Chakra Petch', 'sans-serif';
 
     --spacing-128: 32rem;

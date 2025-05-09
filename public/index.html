@@ -14,34 +14,11 @@
     content="assistência técnica, manutenção, computadores, notebooks, higienização, montagem, gaming, Backpech">
   <meta name="author" content="Backpech">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Backpech - Assistência Técnica Especializada">
-  <meta property="og:description"
-    content="Assistência técnica especializada em manutenção de computadores, notebooks, higienização, troca de sistema e montagem de máquinas gaming.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.backpech.com.br/">
-  <meta property="og:image" content="https://www.backpech.com.br/images/logo/BP-P-NB-48px.png">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Backpech - Assistência Técnica Especializada">
-  <meta name="twitter:description"
-    content="Assistência técnica especializada em manutenção de computadores, notebooks, higienização, troca de sistema e montagem de máquinas gaming.">
-  <meta name="twitter:image" content="https://www.backpech.com.br/images/logo/BP-P-NB-48px.png">
-
   <!-- Pré-conexão para CDNs e Fontes -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Pré-carregamento de fontes críticas -->
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Orbitron:wght@400;600;700&display=swap">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Orbitron:wght@400;600;700&display=swap">
 
   <!-- CSS Principal (minificado) -->
-  <link rel="stylesheet" href="/assets/css/main.min.css">
+  <link rel="stylesheet" href="/public/css/main.min.css">
 
   <!-- Font Awesome (para ícones) - com SRI e crossorigin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -49,37 +26,168 @@
     crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Favicon único e consistente -->
-  <link rel="icon" href="/images/icons/Star-BP-P-NB.png" type="image/png">
+  <link rel="icon" href="/public/images/icons/Star-BP-P-NB.png" type="image/png">
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.backpech.com.br/">
 </head>
 
-<body class="body-main">
-
-  <!-- Cabeçalho -->
-  <header class="header-main">
-    <nav class="navbar">
-      
+<body class="bg-bp-gray900">
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav class="bg-bp-white/80 dark:bg-bp-black/80 h-18 flex items-center justify-between p-6 lg:px-8"
+      aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="/public/index.html" class="-m-1.5 p-1.5">
+          <span class="sr-only">Backpech</span>
+          <img class="max-h-10 w-auto" src="/public/images/logo/BP-P-NB.png" alt="Backpech Logo">
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-bp-gray700">
+          <span class="sr-only">Abrir Menu Principal</span>
+          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12">
+        <a href="/public/index.html"
+          class="text-sm/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Início</a>
+        <a href="/public/servicos.html"
+          class="text-sm/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Serviços</a>
+        <a href="/public/contato.html"
+          class="text-sm/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Contato</a>
+      </div>
     </nav>
+
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div class="lg:hidden" role="dialog" aria-modal="true">
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-0 z-50"></div>
+      <div
+        class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-bp-white dark:bg-bp-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-bp-gray900/10">
+        <div class="absolute inset-x-0 top-0 -z-10 pointer-events-none overflow-hidden blur-3xl" aria-hidden="true">
+          <div
+            class="relative left-1/2 aspect-1155/678 w-[18rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-bp-yellow to-bp-orange dark:from-bp-blue dark:to-bp-purple opacity-30 dark:opacity-70 sm:w-[36.125rem] sm:left-[calc(50%-11rem)] sm:opacity-40 sm:rotate-[30deg] md:w-[72.1875rem] md:left-[calc(50%-30rem)]"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);">
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Backpech</span>
+            <img class="max-h-10 w-auto" src="/public/images/logo/BP-P-NB.png" alt="Backpech Logo">
+          </a>
+          <button type="button" class="-m-2.5 rounded-md p-2.5 text-bp-red">
+            <span class="sr-only">Fechar Menu Principal</span>
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true" data-slot="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-bp-gray500/10">
+            <div class="space-y-2 py-6">
+              <a href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Início</a>
+              <a href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Serviços</a>
+              <a href="#"
+                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Contato</a>
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 -z-10 pointer-events-none overflow-hidden blur-3xl" aria-hidden="true">
+          <div
+            class="relative left-1/2 aspect-1155/678 w-[18rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-bp-yellow to-bp-orange dark:from-bp-blue dark:to-bp-purple opacity-30 dark:opacity-70 sm:w-[36.125rem] sm:left-[calc(50%-11rem)] sm:opacity-40 sm:rotate-[30deg] md:w-[72.1875rem] md:left-[calc(50%-30rem)]"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- Conteúdo principal -->
-  <main class="main-content">
-    <!-- Hero Section com imagem de fundo -->
-    <section class="hero-section">
-      
-    </section>
+  <div class="bg-[url(/public/images/background.png)] bg-fixed">
+    <div class="relative isolate px-6 pt-14 lg:px-8">
+      <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        aria-hidden="true">
+        <div
+          class="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-bp-yellow to-bp-orange dark:from-bp-blue dark:to-bp-purple opacity-40 dark:opacity-60 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+        </div>
+      </div>
+      <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+          <div
+            class="relative rounded-full px-3 py-1 text-sm/6 font-body ring-1 bg-bp-white/70 text-bp-black hover:bg-bp-gray50 ring-bp-orange/80 hover:ring-bp-orange dark:bg-bp-gray900/30 dark:text-bp-white dark:hover:bg-bp-gray900 dark:ring-bp-blue/80 dark:hover:ring-bp-blue">
+            Entre em contato agora mesmo. <a href="/public/contato.html" class="font-body text-bp-purple"><span
+                class="absolute inset-0" aria-hidden="true"></span>Faça um orçamento <span
+                aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="text-center">
+          <h1 class="text-5xl font-title tracking-tight text-balance text-bp-gray900 sm:text-7xl">Backpech</h1>
+          <p class="mt-8 text-lg font-title text-pretty text-bp-gray700 sm:text-xl/8">
+            Assistência Técnica Especializada em manutenção de computadores, notebooks, higienização, troca de sistema e
+            montagem de máquinas gaming.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="/public/servicos.html"
+              class="rounded-md px-3.5 py-2.5 text-sm font-title bg-bp-orange text-bp-white hover:bg-bp-white hover:text-bp-orange dark:bg-bp-purple dark:text-bp-gray900 shadow-xs dark:hover:bg-bp-gray900 dark:hover:text-bp-purple focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bp-orange dark:focus-visible:outline-bp-purple">
+              Conheça nossos Serviços →
+            </a>
+            <a href="/public/contato.html"
+              class="rounded-md px-3.5 py-2.5 text-sm font-title bg-bp-orange text-bp-white hover:bg-bp-white hover:text-bp-orange dark:bg-bp-purple dark:text-bp-gray900 shadow-xs dark:hover:bg-bp-gray900 dark:hover:text-bp-purple focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bp-orange dark:focus-visible:outline-bp-purple">
+              Entre em Contato →
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        aria-hidden="true">
+        <div
+          class="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-bp-yellow to-bp-orange dark:from-bp-blue dark:to-bp-purple opacity-30 dark:opacity-70 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <main class="bg-bp-gray900">
     <!-- Destaque de Serviços -->
-    <section class="services-highlight">
-      
+    <section class="relative m-6 lg:m-8 flex flex-col md:flex-row gap-8 justify-center items-stretch">
+      <!-- Post 1 -->
+      <div
+        class="flex-1 max-w-md bg-bp-white dark:bg-bp-black rounded-xl shadow-lg border border-bp-gray200 dark:border-bp-gray700 p-4 flex flex-col items-center">
+        <span class="text-bp-purple font-title text-lg mb-2 flex items-center gap-2">
+          <i class="fab fa-instagram"></i>
+          Destaque no Instagram
+        </span>
+        <blockquote class="instagram-media w-full"
+          data-instgrm-permalink="https://www.instagram.com/p/DHrgazCJGQV/?utm_source=ig_embed&amp;utm_campaign=loading"
+          data-instgrm-version="14"
+          style="background:transparent; border:0; box-shadow:none; min-width:100%; padding:0;">
+        </blockquote>
+      </div>
+      <!-- Post 2 -->
+      <div
+        class="flex-1 max-w-md bg-bp-white dark:bg-bp-black rounded-xl shadow-lg border border-bp-gray200 dark:border-bp-gray700 p-4 flex flex-col items-center">
+        <span class="text-bp-purple font-title text-lg mb-2 flex items-center gap-2">
+          <i class="fab fa-instagram"></i>
+          Destaque no Instagram
+        </span>
+        <blockquote class="instagram-media w-full"
+          data-instgrm-permalink="https://www.instagram.com/p/DHrfjSJJT_E/?utm_source=ig_embed&amp;utm_campaign=loading"
+          data-instgrm-version="14"
+          style="background:transparent; border:0; box-shadow:none; min-width:100%; padding:0;">
+        </blockquote>
+      </div>
     </section>
   </main>
 
   <!-- Rodapé -->
-  <footer class="footer-main">
-    
+  <footer class="bg-bp-gray500">
+
   </footer>
 
   <!-- JavaScript -->
