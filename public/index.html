@@ -2,6 +2,7 @@
 <html lang="pt-BR" class="scroll-smooth">
 
 <head>
+  <!-- Meta Tags -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,31 +18,39 @@
   <!-- Pré-conexão para CDNs e Fontes -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- CSS Principal (minificado) -->
-  <link rel="stylesheet" href="/public/css/main.min.css">
-
   <!-- Font Awesome (para ícones) - com SRI e crossorigin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papmQKXQw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Qw5b3Q6v6Qw5c5Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Material Symbols -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,1,-50..200" />
+
+  <!-- CSS Principal (minificado) -->
+  <link rel="stylesheet" href="/css/main.min.css">
 
   <!-- Favicon único e consistente -->
-  <link rel="icon" href="/public/images/icons/Star-BP-P-NB.png" type="image/png">
-
+  <link rel="icon" href="/images/icons/Star-BP-P-NB.png" type="image/png">
 </head>
 
 <body class="bg-bp-gray900">
   <header class="absolute inset-x-0 top-0 z-50">
+    <!-- Navbar -->
     <nav class="bg-bp-white/80 dark:bg-bp-black/80 h-18 flex items-center justify-between p-6 lg:px-8"
       aria-label="Global">
+      <!-- Logo -->
       <div class="flex lg:flex-1">
-        <a href="/public/index.html" class="-m-1.5 p-1.5">
+        <a href="/index.html" class="-m-1.5 p-1.5">
           <span class="sr-only">Backpech</span>
-          <img class="max-h-10 w-auto" src="/public/images/logo/BP-P-NB.png" alt="Backpech Logo">
+          <img class="max-h-10 w-auto" src="/images/logo/BP-P-NB.png" alt="Backpech Logo">
         </a>
       </div>
+      <!-- Botão do menu - Apenas Mobile -->
       <div class="flex lg:hidden">
-        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-bp-gray700">
+        <button type="button" id="mobile-menu-toggle"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-bp-gray700" aria-expanded="false"
+          aria-controls="mobile-menu">
           <span class="sr-only">Abrir Menu Principal</span>
           <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             aria-hidden="true" data-slot="icon">
@@ -49,20 +58,54 @@
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12">
-        <a href="/public/index.html"
-          class="text-sm/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Início</a>
-        <a href="/public/servicos.html"
-          class="text-sm/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Serviços</a>
-        <a href="/public/contato.html"
-          class="text-sm/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Contato</a>
+      <!-- Navegação via link -->
+      <div class="hidden lg:flex lg:justify-center lg:gap-x-12">
+        <a href="/index.html"
+          class="text-lg/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple px-3 py-2 rounded-lg flex items-center gap-x-1">
+          <span class="material-symbols-outlined">
+            home
+          </span>Início</a>
+        <a href="/servicos.html"
+          class="text-lg/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple px-3 py-2 rounded-lg flex items-center gap-x-1">
+          <span class="material-symbols-outlined">
+            build_circle
+          </span>Serviços</a>
+        <a href="/contato.html"
+          class="text-lg/6 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple px-3 py-2 rounded-lg flex items-center gap-x-1">
+          <span class="material-symbols-outlined">
+            phone
+          </span>Contato</a>
+      </div>
+
+      <!-- Botão de alternancia entre temas claro e escuro -->
+      <div class="hidden lg:box-border lg:h-8 lg:w-auto lg:flex lg:flex-1 lg:justify-end">
+        <button id="theme-toggle" type="button"
+          class="flex items-center align-middle gap-x-1 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-bp-orange dark:focus:ring-bp-blue"
+          aria-label="Alternar tema claro e escuro">
+          <div id="theme-toggle-light-icon" class="text-2xl">
+            <span class="material-symbols-outlined text-bp-gray900 dark:text-bp-gray500">
+              <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined">
+                  wb_sunny
+                </span>
+              </span>
+            </span>
+          </div>
+          <span> </span>
+          <div id="theme-toggle-dark-icon" class="text-xl">
+            <span class="material-symbols-outlined text-bp-gray900 dark:text-bp-gray500">
+              moon_stars
+            </span>
+          </div>
+        </button>
       </div>
     </nav>
 
-    <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
-      <!-- Background backdrop, show/hide based on slide-over state. -->
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="lg:hidden" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+      <!-- Background backdrop -->
       <div class="fixed inset-0 z-50"></div>
+      <!-- Decoração - tipo mancha - Mobile -->
       <div
         class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-bp-white dark:bg-bp-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-bp-gray900/10">
         <div class="absolute inset-x-0 top-0 -z-10 pointer-events-none overflow-hidden blur-3xl" aria-hidden="true">
@@ -71,31 +114,54 @@
             style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);">
           </div>
         </div>
+        <!-- Centeúdo Menu - Mobile -->
         <div class="flex items-center justify-between">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="/index.html" class="-m-1.5 p-1.5">
             <span class="sr-only">Backpech</span>
-            <img class="max-h-10 w-auto" src="/public/images/logo/BP-P-NB.png" alt="Backpech Logo">
+            <h2 id="mobile-menu-title" class="sr-only">Menu Principal</h2>
+            <img class="max-h-10 w-auto" src="/images/logo/BP-P-NB.png" alt="Backpech Logo">
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-bp-red">
-            <span class="sr-only">Fechar Menu Principal</span>
+          <!-- Botão para fechar o Menu - Mobile -->
+          <button type="button" id="mobile-menu-close" class="-m-2.5 rounded-md p-2.5 text-bp-red">
+            <span class="sr-only">Fechar menu</span>
             <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
               aria-hidden="true" data-slot="icon">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
+        <!-- Navegação via link - Mobile -->
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-bp-gray500/10">
             <div class="space-y-2 py-6">
-              <a href="#"
+              <a href="/index.html"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Início</a>
-              <a href="#"
+              <a href="/servicos.html"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Serviços</a>
-              <a href="#"
+              <a href="/contato.html"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple">Contato</a>
+            </div>
+            <!-- Botão de alternancia entre temas claro e escuro - Mobile -->
+            <div class="py-6">
+              <button id="theme-toggle-mobile" type="button"
+                class="flex w-full items-center justify-center gap-x-2 p-2.5 rounded-lg text-base/7 font-body text-bp-black hover:bg-bp-orange dark:text-bp-white dark:hover:bg-bp-purple"
+                aria-label="Alternar tema claro e escuro">
+                <div id="theme-toggle-light-icon-mobile" class="text-2xl">
+                  <span class="material-symbols-outlined text-bp-yellow">
+                    light_mode
+                  </span>
+                </div>
+                <span> </span>
+                <div id="theme-toggle-dark-icon-mobile" class="text-2xl">
+                  <span class="material-symbols-outlined text-bp-blue">
+                    dark_mode
+                  </span>
+                </div>
+              </button>
             </div>
           </div>
         </div>
+        <!-- Decoração - tipo mancha - Mobile -->
         <div class="absolute inset-x-0 bottom-0 -z-10 pointer-events-none overflow-hidden blur-3xl" aria-hidden="true">
           <div
             class="relative left-1/2 aspect-1155/678 w-[18rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-bp-yellow to-bp-orange dark:from-bp-blue dark:to-bp-purple opacity-30 dark:opacity-70 sm:w-[36.125rem] sm:left-[calc(50%-11rem)] sm:opacity-40 sm:rotate-[30deg] md:w-[72.1875rem] md:left-[calc(50%-30rem)]"
@@ -106,8 +172,10 @@
     </div>
   </header>
 
-  <div class="bg-[url(/public/images/background.png)] bg-fixed">
+  <!-- Hero -->
+  <div class="bg-[url(/images/background.png)] bg-fixed">
     <div class="relative isolate px-6 pt-14 lg:px-8">
+      <!-- Decoração - tipo mancha -->
       <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true">
         <div
@@ -115,19 +183,22 @@
           style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
         </div>
       </div>
+      <!-- Hero Content -->
       <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <!-- Caixa direta para Contato -->
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
           <div
-            class="relative rounded-full px-3 py-1 text-sm/6 font-body ring-1 bg-bp-white/70 text-bp-black hover:bg-bp-gray50 ring-bp-orange/80 hover:ring-bp-orange dark:bg-bp-gray900/30 dark:text-bp-white dark:hover:bg-bp-gray900 dark:ring-bp-blue/80 dark:hover:ring-bp-blue">
+            class="relative rounded-full px-3 py-1 text-sm/6 font-body ring-1 bg-bp-gray900/30 text-bp-white hover:bg-bp-gray900 ring-bp-orange/80 hover:ring-bp-orange dark:ring-bp-blue/80 dark:hover:ring-bp-blue">
             <span class="absolute top-0 right-0 size-3">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-bp-blue dark:bg-bp-yellow opacity-75 dark:opacity-60"></span>
-              <span class="absolute inline-flex size-3 rounded-full bg-bp-blue dark:bg-bp-purple"></span>
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-bp-yellow opacity-75"></span>
+              <span class="absolute inline-flex size-3 rounded-full bg-bp-blue dark:bg-bp-orange"></span>
             </span>
-            Entre em contato agora mesmo. <a href="/public/contato.html" class="font-body text-bp-purple"><span
-                class="absolute inset-0" aria-hidden="true"></span>Faça um orçamento</a>
+            Entre em contato agora mesmo. <a href="/contato.html"
+              class="font-body text-bp-yellow dark:text-bp-purple"><span class="absolute inset-0"
+                aria-hidden="true"></span>Faça um orçamento</a>
           </div>
         </div>
+        <!-- Hero Titúlo e Subtitúlo -->
         <div class="text-center">
           <h1
             class="bg-gradient-to-r from-40% to-90% from-bp-yellow to-bp-orange dark:from-bp-purple dark:to-bp-blue bg-clip-text text-5xl font-title tracking-tight text-balance text-transparent sm:text-7xl">
@@ -136,18 +207,20 @@
             Assistência Técnica Especializada em manutenção de computadores, notebooks, higienização, troca de sistema e
             montagem de máquinas gaming.
           </p>
+          <!-- Botões de navegação -->
           <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="/public/servicos.html"
-              class="rounded-md px-3.5 py-2.5 text-sm font-title bg-bp-orange text-bp-white hover:bg-bp-white hover:text-bp-orange dark:bg-bp-purple dark:text-bp-gray900 shadow-lg shadow-bp-yellow/60 dark:shadow-bp-blue/60 dark:hover:bg-bp-gray900 dark:hover:text-bp-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bp-orange dark:focus-visible:outline-bp-purple">
+            <a href="/servicos.html"
+              class="rounded-md px-3.5 py-2.5 text-sm font-title bg-bp-orange text-bp-gray900 hover:bg-bp-gray900 hover:text-bp-orange dark:bg-bp-purple shadow-lg shadow-bp-yellow/60 dark:shadow-bp-blue/60 dark:hover:text-bp-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bp-orange dark:focus-visible:outline-bp-purple">
               Conheça nossos Serviços ->
             </a>
-            <a href="/public/contato.html"
-              class="rounded-md px-3.5 py-2.5 text-sm font-title bg-bp-orange text-bp-white hover:bg-bp-white hover:text-bp-orange dark:bg-bp-purple dark:text-bp-gray900 shadow-lg shadow-bp-yellow/60 dark:shadow-bp-blue/60 dark:hover:bg-bp-gray900 dark:hover:text-bp-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bp-orange dark:focus-visible:outline-bp-purple">
+            <a href="/contato.html"
+              class="rounded-md px-3.5 py-2.5 text-sm font-title bg-bp-orange text-bp-gray900 hover:bg-bp-gray900 hover:text-bp-orange dark:bg-bp-purple shadow-lg shadow-bp-yellow/60 dark:shadow-bp-blue/60 dark:hover:text-bp-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bp-orange dark:focus-visible:outline-bp-purple">
               Entre em Contato ->
             </a>
           </div>
         </div>
       </div>
+      <!-- Decoração - tipo mancha -->
       <div
         class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
         aria-hidden="true">
@@ -158,25 +231,209 @@
       </div>
     </div>
   </div>
+  <!-- Fim do Hero -->
 
-  <main class="bg-bp-gray900">
-    <section class="relative m-6 lg:m-8 flex flex-col md:flex-row gap-8 justify-center items-stretch">
-      <div class="overflow-hidden bg-bp-white dark:bg-bp-black rounded-xl shadow-lg p-6 lg:px-8 py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <main class="bg-bp-gray50 dark:bg-bp-gray900">
+    <!-- Apresentação Backpech -->
+    <div class="bg-bp-gray50 dark:bg-bp-gray900 py-8 sm:py-10">
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-[1600px] lg:px-8">
+        <!-- Título -->
+        <h2 class="text-center text-2xl font-body text-bp-orange dark:text-bp-blue">A Backpech Resolve!</h2>
+        <p
+          class="mx-auto mt-2 max-w-lg text-center text-4xl font-title tracking-tight text-balance text-bp-black dark:text-bp-white sm:text-5xl">
+          De Hardware até Software</p>
+        <!-- Grid de informações: -->
+        <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-5 lg:grid-rows-2">
+          <!-- Primeiro Item: Row-span-2 Col-start-1 -->
+          <div class="relative lg:row-span-2 ls:col-start-1">
+            <div class="absolute inset-px rounded-lg bg-bp-white lg:rounded-l-[1.5rem]"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(1.5rem+1px)]">
+              <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                <p class="mt-2 text-xl font-title tracking-tight text-bp-black lg:text-center">
+                  Sites Responsivos</p>
+                <p class="mt-2 max-w-lg text-lg/6 font-body text-bp-black lg:text-center">
+                  Criação de sites responsivos com foco na experiência do usuário e interface Mobile-First. Com
+                  acessoria de Hospedagem e Visual.</p>
+              </div>
+              <div class="@container relative min-h-[30rem] w-full grow lg:mx-auto lg:max-w-sm">
+                <div
+                  class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[10cqw] border-x-[3cqw] border-t-[3cqw] border-bp-gray700 bg-bp-gray900 shadow-2xl">
+                  <img href="https://grittidm.github.io/Backpech-Linkpage/" class="size-full object-cover object-top"
+                    src="/images/photos/r-img-LP.jpg" alt="Exemplo de um site desenvolvido pela Backpech">
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-bp-black/5 dark:ring-bp-white/5 lg:rounded-l-[2rem]">
+            </div>
+          </div>
+          <!-- Segundo Item: Row-start-1 Col-start-2 -->
+          <div class="relative lg:row-start-1 lg:col-start-2">
+            <div class="absolute inset-px rounded-lg bg-bp-white lg:rounded-tr-[2rem]"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p class="mt-2 text-xl font-title tracking-tight text-bp-black lg:text-center">
+                  Higienização</p>
+                <p class="mt-2 max-w-lg text-lg/6 font-body text-pretty text-bp-black lg:text-center">
+                  Computadores, Notebooks, Video Games e eletrônicos em geral. Trabalhamos com a limpeza dos dispositivos
+                  para garantir o aumento da Vida Útil do seu dispositivo.</p>
+              </div>
+              <!-- Contêiner da Imagem Rodapé -->
+              <div class="relative mt-2 h-10 w-full overflow-hidden sm:h-12 md:h-14 lg:mt-12 lg:h-16">
+                <img class="absolute top-0 left-0 w-full h-auto object-cover" src="/images/photos/t-img-AN.png"
+                  alt="Topo da imagem decorativa para seção de higienização">
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-bp-black/5 dark:ring-bp-white/5 lg:rounded-t-[2rem]">
+            </div>
+          </div>
+          <!-- Terceiro Item: row-start-2 Col-start-2 Col-end-4 -->
+          <div class="relative lg:row-start-2 lg:col-start-2 lg:col-end-4">
+            <div class="absolute inset-px rounded-lg bg-bp-white"></div>
+            <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-br-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p class="mt-2 text-xl font-title tracking-tight text-bp-black lg:text-center">
+                  Computadores Gaming</p>
+                <p class="mt-2 max-w-lg text-lg/6 font-body text-bp-black lg:text-center">
+                  Para aqueles jogadores casuais até para aqueles atletas de e-Sports. Seja qual for sua necessidade, a Backpech tem o configuração ideal para você.</p>
+              </div>
+              <div class="@container flex flex-1 items-center lg:py-6 ">
+                <img class="h-[min(152px,40cqw)] object-cover"
+                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-security.png" alt="">
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-bp-black/5 dark:ring-bp-white/5">
+            </div>
+          </div>
+          <!-- Quarto Item: Row-start-1 Col-span-2 Col-end-5 -->
+          <div class="relative lg:row-start-1 lg:col-start-3 lg:col-end-5">
+            <div class="absolute inset-px rounded-lg bg-bp-white lg:rounded-t-[2rem]"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-t-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p class="mt-2 text-xl font-title tracking-tight text-bp-black lg:text-center">
+                  Performance</p>
+                <p class="mt-2 max-w-lg text-lg/6 font-body text-bp-black lg:text-center">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit maiores impedit.</p>
+              </div>
+              <div class="flex flex-1 items-center justify-center px-8 lg:pt-10 sm:px-10">
+                <img class="w-full lg:max-w-xs"
+                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt="">
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-bp-black/5 dark:ring-bp-white/5 lg:rounded-t-[2rem]">
+            </div>
+          </div>
+          <!-- Quinto Item: Row-start-2 Col-start-4 -->
+          <div class="relative lg:row-start-2 lg:col-start-4">
+            <div class="absolute inset-px rounded-lg bg-bp-white"></div>
+            <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p class="mt-2 text-xl font-title tracking-tight text-bp-black lg:text-center">
+                  Security</p>
+                <p class="mt-2 max-w-lg text-lg/6 font-body text-bp-black lg:text-center">
+                  Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi.</p>
+              </div>
+              <div class="@container flex flex-1 items-center lg:py-6 ">
+                <img class="h-[min(152px,40cqw)] object-cover"
+                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-security.png" alt="">
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-bp-black/5 dark:ring-bp-white/5">
+            </div>
+          </div>
+          <!-- Sexto Item: Row-span-2 Col-end-6 -->
+          <div class="relative lg:row-span-2 lg:col-end-6">
+            <div class="absolute inset-px rounded-lg bg-bp-white lg:rounded-b-[2rem] lg:rounded-r-[2rem]">
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                <p class="mt-2 text-xl font-title tracking-tight text-bp-black lg:text-center">
+                  Bots e Automações</p>
+                <p class="mt-2 max-w-lg text-lg/6 font-body text-bp-black lg:text-center">Sit
+                  quis amet rutrum tellus ullamcorper ultricies libero dolor eget sem sodales gravida.</p>
+              </div>
+              <div class="relative min-h-[30rem] w-full grow">
+                <div
+                  class="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-bp-black dark:bg-bp-gray900 shadow-2xl">
+                  <div class="flex bg-bp-gray700/40 dark:bg-bp-gray800/40 ring-1 ring-bp-white/5">
+                    <div class="-mb-px flex text-sm/6 font-body text-bp-gray300 dark:text-bp-gray400">
+                      <div
+                        class="border-r border-b border-r-bp-white/10 border-b-bp-white/20 bg-bp-white/5 dark:bg-bp-gray700/20 px-4 py-2 text-bp-white dark:text-bp-gray50">
+                        bot.js</div>
+                      <div class="border-r border-bp-gray600/10 dark:border-bp-gray500/10 px-4 py-2">input.css</div>
+                    </div>
+                  </div>
+                  <div class="px-6 pt-6 pb-14">
+                    <!-- Your code example -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-bp-black/5 dark:ring-bp-white/5 lg:rounded-b-[2rem] lg:rounded-r-[2rem]">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "Quem somos" section -->
+    <section class="relative m-6 lg:m-8 flex flex-col md:flex-row gap-8 justify-center items-center">
+      <div
+        class="grid grid-row-2 overflow-hidden bg-bp-white dark:bg-bp-black rounded-xl shadow-lg p-6 lg:px-8 py-8 sm:py-10">
+
+        <!-- Linha 1: Texto à esquerda, Imagem à direita em telas grandes -->
+        <!-- Texto à esquerda -->
+        <div class="row-1 mx-auto max-w-[1600px] px-6 lg:px-8">
           <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div class="lg:pt-4 lg:pr-8">
               <div class="lg:max-w-lg">
-                <h2 class="text-base/7 font-semibold text-indigo-600">Deploy faster</h2>
-                <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">A better
-                  workflow</p>
-                <p class="mt-6 text-lg/8 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
-                <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+                <h2 class="text-2xl font-body text-bp-orange dark:text-bp-blue">Quem Somos?</h2>
+                <p
+                  class="mt-2 text-4xl font-body tracking-tight text-pretty text-bp-yellow dark:text-bp-purple sm:text-5xl">
+                  Sua Assistência Técnica</p>
+                <p class="mt-6 text-lg/8 text-bp-black dark:text-bp-white">Especializada em manutenções de Computadores
+                  e Notebooks, mas não limitada a apenas isto. Somos a mais nova assistência técnica localizada em
+                  Caraguatatuba-SP. Com máximo cuidado, prezamos pela agilidade e eficiência em nossa mão de obra.</p>
+
+              </div>
+            </div>
+            <!-- Imagem à direita -->
+            <div class="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 
+             sm:w-[57rem] md:-ml-4 lg:ml-0 lg:h-[28rem] flex items-center justify-center overflow-hidden">
+              <img src="/images/photos/r-img-3.png"
+                alt="Bancada de trabalho organizada com ferramentas e componentes eletrônicos, representando o ambiente da assistência técnica Backpech."
+                class="w-full h-full object-cover rounded-xl" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Linha 2: Imagem à esquerda, Texto à direita em telas grandes -->
+        <div class="row-2 mx-auto max-w-7xl px-6 lg:px-8 mt-16 sm:mt-20 lg:mt-24">
+          <div
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 items-center">
+            <div class="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 
+             sm:w-[57rem] lg:h-[28rem] flex items-center justify-center overflow-hidden lg:order-first">
+              <img src="/images/photos/r-img-1.png"
+                alt="Detalhe de uma placa-mãe em processo de manutenção na bancada da Backpech."
+                class="w-full h-full object-cover rounded-xl" loading="lazy" />
+            </div>
+            <div class="lg:pt-4 lg:pl-8">
+              <div class="lg:max-w-lg">
+                <dl class="mt-10 max-w-xl space-y-8 text-base/7 text-bp-black dark:text-bp-white lg:max-w-none">
                   <div class="relative pl-9">
-                    <dt class="inline font-semibold text-gray-900">
-                      <svg class="absolute top-1 left-1 size-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor"
-                        aria-hidden="true" data-slot="icon">
+                    <dt class="inline font-body text-bp-orange dark:text-bp-blue">
+                      <svg class="absolute top-1 left-1 size-5 text-bp-orange dark:text-bp-blue" viewBox="0 0 20 20"
+                        fill="currentColor" aria-hidden="true" data-slot="icon">
                         <path fill-rule="evenodd"
                           d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z"
                           clip-rule="evenodd" />
@@ -187,9 +444,9 @@
                       perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
                   </div>
                   <div class="relative pl-9">
-                    <dt class="inline font-semibold text-gray-900">
-                      <svg class="absolute top-1 left-1 size-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor"
-                        aria-hidden="true" data-slot="icon">
+                    <dt class="inline font-body text-bp-orange dark:text-bp-blue">
+                      <svg class="absolute top-1 left-1 size-5 text-bp-orange dark:text-bp-blue" viewBox="0 0 20 20"
+                        fill="currentColor" aria-hidden="true" data-slot="icon">
                         <path fill-rule="evenodd"
                           d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z"
                           clip-rule="evenodd" />
@@ -200,9 +457,9 @@
                       commodo.</dd>
                   </div>
                   <div class="relative pl-9">
-                    <dt class="inline font-semibold text-gray-900">
-                      <svg class="absolute top-1 left-1 size-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor"
-                        aria-hidden="true" data-slot="icon">
+                    <dt class="inline font-body text-bp-orange dark:text-bp-blue">
+                      <svg class="absolute top-1 left-1 size-5 text-bp-orange dark:text-bp-blue" viewBox="0 0 20 20"
+                        fill="currentColor" aria-hidden="true" data-slot="icon">
                         <path
                           d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
                         <path fill-rule="evenodd"
@@ -217,21 +474,18 @@
                 </dl>
               </div>
             </div>
-            <img src="/public/images/photos/r-img-1.png"
-              alt="Product screenshot"
-              class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-              width="2432" height="1442">
           </div>
         </div>
       </div>
-
     </section>
-    <!-- Destaque de Serviços -->
+
+    <!-- Destaque de Posts do Instagram -->
     <section class="relative m-6 lg:m-8 flex flex-col md:flex-row gap-8 justify-center items-stretch">
       <!-- Post 1 -->
-      <div class="flex-1 max-w-md bg-bp-white dark:bg-bp-black rounded-xl shadow-lg p-4 flex flex-col items-center">
-        <span class="text-bp-purple font-title text-lg mb-2 flex items-center gap-2">
-          <i class="fab fa-instagram"></i>
+      <div class="instagram-card">
+        <span class="instagram-card-title">
+          <span class="fab fa-instagram" aria-hidden="true"></span>
+          <span class="sr-only">Instagram</span>
           Destaque no Instagram
         </span>
         <blockquote class="instagram-media w-full"
@@ -241,9 +495,10 @@
         </blockquote>
       </div>
       <!-- Post 2 -->
-      <div class="flex-1 max-w-md bg-bp-white dark:bg-bp-black rounded-xl shadow-lg p-4 flex flex-col items-center">
-        <span class="text-bp-purple font-title text-lg mb-2 flex items-center gap-2">
-          <i class="fab fa-instagram"></i>
+      <div class="instagram-card">
+        <span class="instagram-card-title">
+          <span class="fab fa-instagram" aria-hidden="true"></span>
+          <span class="sr-only">Instagram</span>
           Destaque no Instagram
         </span>
         <blockquote class="instagram-media w-full"
@@ -261,9 +516,8 @@
   </footer>
 
   <!-- JavaScript -->
-  <script src="/src/js/main.js" defer></script>
-  <script src="/src/js/dark-mode.js" defer></script>
-  <script async src="//www.instagram.com/embed.js"></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/dark-mode.js" defer></script>
 </body>
 
 </html>

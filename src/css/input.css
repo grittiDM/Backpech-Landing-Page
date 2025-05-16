@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=Orbitron:wght@600&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     --color-bp-white: #f9f5d7;
     --color-bp-black: #282828;
@@ -12,6 +14,7 @@
     --color-bp-purple: #8f3f71;
     --color-bp-orange: #fe8019;
 
+    --color-bp-gray0: #fffdee;
     --color-bp-gray50: #d5c4a1;
     --color-bp-gray100: #bdae93;
     --color-bp-gray200: #a89984;
@@ -28,4 +31,27 @@
 
     --spacing-128: 32rem;
     --spacing-144: 36rem;
+}
+
+@layer components {
+    .instagram-card {
+        @apply flex-1 max-w-md bg-bp-white dark:bg-bp-black rounded-xl shadow-lg p-4 flex flex-col items-center;
+    }
+
+    .instagram-card-title {
+        @apply text-bp-orange dark:text-bp-purple font-title text-lg mb-2 flex items-center gap-2;
+    }
+
+    .theme-icon-active {
+        @apply opacity-100 scale-110;
+    }
+
+    .theme-icon-inactive {
+        @apply opacity-60;
+    }
+
+    .material-symbols-outlined {
+        @apply align-middle;
+        font-size: inherit !important;
+    }
 }
