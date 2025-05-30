@@ -16,7 +16,7 @@ ___
 ![JavaScript](https://skillicons.dev/icons?i=javascript)
 ![Node.js](https://skillicons.dev/icons?i=nodejs)
 ![Tailwind](https://skillicons.dev/icons?i=tailwind)
-
+<!-- Cabeçalho -->
 ___
 
 <!-- Corpo do README -->
@@ -28,7 +28,7 @@ Uma **Landing Page** personalizável, projetada para ser um ponto central da sua
 
 A **[Backpech](https://www.instagram.com/back.pech/)** é uma empresa que presta serviços de TI particulares, como: manutenção e montagem de computadores, formatação, instalação de drivers e softwares, criação de sites, treinamentos básicos, entre outros. Mais informações podem ser encontradas em nossas redes sociais ou outros canais de contato listados abaixo.
 
-### Por que uma Landing Page?
+## Por que uma Landing Page?
 
 No cenário digital atual, ter uma presença online impactante é crucial. Uma **Landing Page** bem estruturada serve como um cartão de visitas digital, direcionando o tráfego para um objetivo específico, seja ele apresentar seus contatos, divulgar um produto, capturar leads ou promover um evento. Ela centraliza informações importantes e facilita a jornada do usuário, tornando a interação mais intuitiva e eficaz. Diferente de um simples agregador de links, uma landing page oferece maior flexibilidade de design e conteúdo para transmitir sua mensagem de forma clara e persuasiva.
 
@@ -36,10 +36,15 @@ No cenário digital atual, ter uma presença online impactante é crucial. Uma *
 
 Há uma infinidade de serviços centralizadores como esse desenvolvido pela Backech. Porém, somente com a Backpech você terá 100% do controle deste link, desde os aspectos visuais que encaixarão perfeitamente com suas necessidades, até a detenção do domínio. Como a Backpech presa pela propriedade do seu link, ela oferta também um breve treinamento para que você consiga realizar alterações pequenas, como a atualização de um link, imagens e algumas cores. Desse forma, mesmo sem formação na área, você poderá gerenciar suas páginas e mante-las como quiser.
 <!-- Corpo do README -->
-
 ___
 <!-- Contato -->
-### Minhas redes de contato:
+## Contribuições e Sugestões
+
+Este projeto está aberto a sugestões de melhorias e contribuições. Se você tiver ideias, encontrar bugs ou quiser propor alterações, sinta-se à vontade para abrir uma [Issue](https://github.com/seu-usuario/seu-repositorio/issues) ou enviar um [Pull Request](https://github.com/seu-usuario/seu-repositorio/pulls) no repositório do GitHub.
+
+Agradecemos qualquer feedback ou ajuda para tornar este projeto ainda melhor!
+
+### Redes de contato:
 
 [![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/back.pech/)
 [![Discord](https://skillicons.dev/icons?i=discord)](https://discord.gg/b3zP3ArVJk)
