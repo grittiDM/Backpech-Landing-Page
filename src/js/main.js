@@ -136,40 +136,6 @@ function updateYear() {
   }
 }
 
-// Lazy Load Instagram Embeds
-function lazyLoadInstagramEmbeds() {
-  const instagramSection = document.querySelector('.instagram-media')?.closest('section');
-
-  if (!instagramSection) {
-    console.warn("Instagram section or media not found. Skipping lazy load for Instagram.");
-    return;
-  }
-
-  let instagramScriptLoaded = false;
-
-  const observer = new IntersectionObserver((entries, observerInstance) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !instagramScriptLoaded) {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = '//www.instagram.com/embed.js';
-        document.body.appendChild(script);
-        instagramScriptLoaded = true;
-
-        script.onload = () => {
-          if (window.instgrm && typeof window.instgrm.Embeds.process === 'function') {
-            window.instgrm.Embeds.process();
-          }
-        };
-
-        observerInstance.unobserve(instagramSection); // Stop observing once loaded
-      }
-    });
-  }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
-
-  observer.observe(instagramSection);
-}
-
 // Inicialização centralizada
 document.addEventListener('DOMContentLoaded', () => {
   preloadImages([
@@ -182,5 +148,4 @@ document.addEventListener('DOMContentLoaded', () => {
   smoothScroll();
   showWelcomeToast();
   updateYear();
-  lazyLoadInstagramEmbeds(); // <- Chamada da nova função
 });
