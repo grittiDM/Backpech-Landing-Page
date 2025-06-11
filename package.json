@@ -8,7 +8,7 @@
     "clean": "rm -rf ./public/css/ ./public/js/ && mkdir -p ./public/css/ ./public/js/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d public",
-    "optimize-images": "mkdir -p ./public/images && npx sharp-cli images/*.{jpg,png} --output ./public/images/ --format webp --quality 100"
+    "optimize-images": "npx sharp-cli --input ./public/images/**/*.{jpg,png} --output {dir} --format webp --quality 100"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

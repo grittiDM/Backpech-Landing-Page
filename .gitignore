@@ -5,10 +5,6 @@ node_modules/
 dist/
 build/
 
-# TailwindCSS e arquivos CSS gerados
-assets/css/main.css
-assets/css/main.min.css
-
 # Arquivos temporários e cache
 *.log
 npm-debug.log*
@@ -34,17 +30,6 @@ Thumbs.db
 # Arquivos de deploy do gh-pages (caso use)
 .gh-pages/
 
-# Outras pastas de saída de ferramentas
-coverage/
-output/
-out/
-
-# Arquivos de lock alternativos (caso use apenas npm)
-yarn.lock
-pnpm-lock.yaml
-
 # Ignorar binários gerados por ferramentas (opcional, pois node_modules/ já cobre)
-# node_modules/.bin/
+node_modules/.bin/
 
-# Comentários explicativos
-# Adicione outros padrões conforme necessário para seu fluxo de trabalho
