@@ -103,27 +103,27 @@ function showWelcomeToast() {
   if (!localStorage.getItem('bp-welcome')) {
     const toast = document.createElement('div');
     toast.textContent = '👋 Bem-vindo à Backpech!';
-    // Applying Tailwind classes for styling and initial animation state
-    toast.className = 'fixed bottom-6 right-6 bg-bp-orange text-bp-white px-4 py-2 rounded-lg shadow-lg z-50 opacity-0 translate-y-8 transition-all duration-700 ease-out';
+    // Aplica classes do Tailwindcss
+    toast.className = 'fixed bottom-6 right-6 bg-bp-orange dark:bg-bp-purple text-bp-white px-4 py-2 rounded-lg shadow-lg z-50 opacity-0 translate-y-8 transition-all duration-700 ease-out';
     document.body.appendChild(toast);
 
-    // Force reflow to ensure the initial state is registered before transitioning
+    // Força o reflow
     void toast.offsetWidth;
 
     requestAnimationFrame(() => {
-      // Transition to visible state
+      // Transição para visível
       toast.classList.remove('opacity-0', 'translate-y-8');
       toast.classList.add('opacity-100', 'translate-y-0');
     });
 
     setTimeout(() => {
       requestAnimationFrame(() => {
-        // Transition to hidden state
+        // Transição para ocultar
         toast.classList.remove('opacity-100', 'translate-y-0');
         toast.classList.add('opacity-0', 'translate-y-8');
         setTimeout(() => toast.remove(), 700); // Remove after fade-out transition
       });
-    }, 3500); // Toast visible for 3.5 seconds
+    }, 3500); // Toast visible por 3.5 segundos
     localStorage.setItem('bp-welcome', '1');
   }
 }
