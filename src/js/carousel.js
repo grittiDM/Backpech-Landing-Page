@@ -20,8 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!dotsContainer) {
       dotsContainer = document.createElement('div');
       dotsContainer.className = 'carousel-dots flex justify-center gap-2 mt-4';
-      // Insere os dots depois do wrapper do track, para melhor estrutura
-      track.parentElement.insertAdjacentElement('afterend', dotsContainer);
+      // Insere os dots dentro do container de controles, entre os botões
+      if (controlsContainer && prevBtn) {
+        prevBtn.insertAdjacentElement('afterend', dotsContainer);
+      } else {
+        // Fallback caso a estrutura antiga ainda seja usada em algum lugar
+        track.parentElement.insertAdjacentElement('afterend', dotsContainer);
+      }
     }
     dotsContainer.innerHTML = ''; // Limpa dots existentes
     slides.forEach((_, idx) => {
@@ -41,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Atualiza os dots
       dotsContainer.childNodes.forEach((dot, idx) => {
-        dot.classList.toggle('bg-primary', idx === currentIndex);
-        dot.classList.toggle('bg-gray-400', idx !== currentIndex);
+        dot.classList.toggle('bg-bg-gray800', idx === currentIndex);
+        dot.classList.toggle('bg-bg-gray100', idx !== currentIndex);
       });
 
       // Atualiza acessibilidade dos slides
@@ -56,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const goToSlide = (idx, isResize = false) => {
       // Para o autoplay ao navegar manualmente
       if (!isResize) stopAutoplay();
-      
+
       // Lógica de loop
       if (idx < 0) {
         currentIndex = slides.length - 1;
@@ -65,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         currentIndex = idx;
       }
-      
+
       updateCarousel();
 
       // Reinicia o autoplay se não for um redimensionamento
