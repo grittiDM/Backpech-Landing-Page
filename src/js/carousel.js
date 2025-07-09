@@ -3,52 +3,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
   carousels.forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
-    // Se não houver track, não é um carrossel válido, então pulamos.
     if (!track) return;
 
     const slides = Array.from(track.children);
     const prevBtn = carousel.querySelector('.carousel-prev');
     const nextBtn = carousel.querySelector('.carousel-next');
+    // CORREÇÃO: Adiciona a declaração da variável 'controlsContainer'
+    const controlsContainer = carousel.querySelector('.carousel-controls');
     let currentIndex = 0;
     let autoPlayInterval = null;
 
-    // Se não houver slides, não há nada a fazer.
     if (slides.length === 0) return;
 
     // --- Criação dos Indicadores (Dots) ---
-    let dotsContainer = carousel.querySelector('.carousel-dots');
-    if (!dotsContainer) {
-      dotsContainer = document.createElement('div');
-      dotsContainer.className = 'carousel-dots flex justify-center gap-2 mt-4';
-      // Insere os dots dentro do container de controles, entre os botões
-      if (controlsContainer && prevBtn) {
-        prevBtn.insertAdjacentElement('afterend', dotsContainer);
-      } else {
-        // Fallback caso a estrutura antiga ainda seja usada em algum lugar
-        track.parentElement.insertAdjacentElement('afterend', dotsContainer);
-      }
-    }
-    dotsContainer.innerHTML = ''; // Limpa dots existentes
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'carousel-dots flex justify-center items-center gap-2';
+
     slides.forEach((_, idx) => {
       const dot = document.createElement('button');
-      dot.className = 'w-3 h-3 rounded-full bg-bp-gray800 dark:bg-bp-gray100 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-bp-gray-800 focus:ring-bp-blue transition-colors';
+      dot.className = 'w-3 h-3 rounded-full bg-bp-gray400 dark:bg-bp-gray600 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-bp-gray-800 focus:ring-bp-blue transition-colors';
       dot.setAttribute('aria-label', `Ir para slide ${idx + 1}`);
       dot.addEventListener('click', () => goToSlide(idx));
       dotsContainer.appendChild(dot);
     });
 
+    // Insere os dots dentro do container de controles, entre os botões
+    if (controlsContainer && prevBtn) {
+      prevBtn.insertAdjacentElement('afterend', dotsContainer);
+    } else {
+      // Fallback caso a estrutura antiga ainda seja usada em algum lugar
+      track.parentElement.insertAdjacentElement('afterend', dotsContainer);
+    }
+
     // --- Funções Principais ---
 
-    // Atualiza a posição do track e o estado dos dots/slides
     const updateCarousel = () => {
+      // Garante que o slide[0] existe antes de tentar ler sua largura
+      if (slides.length === 0 || !slides[0]) return;
       const slideWidth = slides[0].getBoundingClientRect().width;
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-      // Atualiza os dots
-      dotsContainer.childNodes.forEach((dot, idx) => {
-        dot.classList.toggle('bg-bg-gray800', idx === currentIndex);
-        dot.classList.toggle('bg-bg-gray100', idx !== currentIndex);
-      });
+      // Lógica de atualização dos dots melhorada
+      if (dotsContainer) {
+        dotsContainer.childNodes.forEach((dot, idx) => {
+          // Remove todas as classes de cor de estado
+          dot.classList.remove('bg-bp-gray800', 'dark:bg-bp-gray100', 'bg-bp-gray400', 'dark:bg-bp-gray600');
+
+          if (idx === currentIndex) {
+            // Adiciona classes de dot ativo
+            dot.classList.add('bg-bp-gray800', 'dark:bg-bp-gray100');
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            // Adiciona classes de dot inativo
+            dot.classList.add('bg-bp-gray400', 'dark:bg-bp-gray600');
+            dot.removeAttribute('aria-current');
+          }
+        });
+      }
 
       // Atualiza acessibilidade dos slides
       slides.forEach((slide, idx) => {
@@ -57,12 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    // Navega para um slide específico
     const goToSlide = (idx, isResize = false) => {
-      // Para o autoplay ao navegar manualmente
       if (!isResize) stopAutoplay();
-
-      // Lógica de loop
+      
       if (idx < 0) {
         currentIndex = slides.length - 1;
       } else if (idx >= slides.length) {
@@ -70,40 +78,35 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         currentIndex = idx;
       }
-
+      
       updateCarousel();
 
-      // Reinicia o autoplay se não for um redimensionamento
       if (!isResize) startAutoplay();
     };
 
     // --- Event Listeners ---
 
-    // Botões de Navegação
     if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
     if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 
-    // Swipe para mobile
     let startX = 0;
     track.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
-      stopAutoplay(); // Pausa ao tocar
+      stopAutoplay();
     }, { passive: true });
 
     track.addEventListener('touchend', e => {
       const endX = e.changedTouches[0].clientX;
-      if (endX < startX - 50) { // Swipe para a esquerda
+      if (endX < startX - 50) {
         goToSlide(currentIndex + 1);
-      } else if (endX > startX + 50) { // Swipe para a direita
+      } else if (endX > startX + 50) {
         goToSlide(currentIndex - 1);
       } else {
-        startAutoplay(); // Reinicia se não houve swipe suficiente
+        startAutoplay();
       }
     });
 
-    // Autoplay com pausa ao passar o mouse
     function startAutoplay() {
-      // Limpa qualquer intervalo anterior para evitar múltiplos timers
       clearInterval(autoPlayInterval);
       autoPlayInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
     }
@@ -115,8 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
 
-
-    // Navegação por Teclado (Acessibilidade)
     carousel.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
@@ -128,11 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Recalcular ao redimensionar a janela
     window.addEventListener('resize', () => goToSlide(currentIndex, true));
 
     // --- Inicialização ---
-    goToSlide(0, true); // Inicializa na posição correta
+    goToSlide(0, true);
     startAutoplay();
   });
 });
