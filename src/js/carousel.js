@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dotsContainer.innerHTML = ''; // Limpa dots existentes
     slides.forEach((_, idx) => {
       const dot = document.createElement('button');
-      dot.className = 'w-3 h-3 rounded-full bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-bp-gray-800 focus:ring-bp-blue transition-colors';
+      dot.className = 'w-3 h-3 rounded-full bg-bp-gray800 dark:bg-bp-gray100 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-bp-gray-800 focus:ring-bp-blue transition-colors';
       dot.setAttribute('aria-label', `Ir para slide ${idx + 1}`);
       dot.addEventListener('click', () => goToSlide(idx));
       dotsContainer.appendChild(dot);
