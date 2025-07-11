@@ -24,9 +24,6 @@ ___
 
 Uma **Landing Page** personalizável, projetada para ser um ponto central da sua presença online. Ideal para apresentar seus links importantes, produtos, serviços ou portfólio de forma organizada e atraente. **O serviço de personalização de página é ofertado pela Backpech.**
 
-#### Galeria
-
-
 ### Sobre a Backpech:
 
 A **[Backpech](https://www.instagram.com/back.pech/)** é uma empresa que presta serviços de TI particulares, como: manutenção e montagem de computadores, formatação, instalação de drivers e softwares, criação de sites, treinamentos básicos, entre outros. Mais informações podem ser encontradas em nossas redes sociais ou outros canais de contato listados abaixo.
