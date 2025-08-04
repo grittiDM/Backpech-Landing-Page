@@ -22,7 +22,7 @@ ___
 <!-- Corpo do README -->
 ## Descrição
 
-Uma **Landing Page** personalizável, projetada para ser um ponto central da sua presença online. Ideal para apresentar seus links importantes, produtos, serviços ou portfólio de forma organizada e atraente. **O serviço de personalização de página é ofertado pela Backpech.** Se você possui conhecimento em desenvolvimento web, sinta-se à vontade para realizar um `Fork` deste repositório e utilizá-lo como template para seus próprios projetos.
+Uma **Landing Page** personalizável, projetada para ser um ponto central da sua presença online. Ideal para apresentar seus links importantes, produtos, serviços ou portfólio de forma organizada e atraente. **O serviço de personalização de página é ofertado pela Backpech.**
 
 ### Sobre a Backpech:
 
